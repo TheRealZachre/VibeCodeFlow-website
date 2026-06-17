@@ -342,7 +342,7 @@ function DemosSection() {
         <SectionHead
           eyebrow="Live demos"
           title="See the platform in action."
-          description="A full BeOne Medicines demonstration — corporate social analytics, CEO profile tracking, and Wikipedia monitoring with live sample data."
+          description="A full Pfizer-branded demonstration — corporate social analytics, CEO profile tracking, and Wikipedia monitoring with live sample data."
         />
 
         <div className="mb-8 grid gap-4 md:grid-cols-3">
@@ -440,7 +440,7 @@ function DemosSection() {
             rel="noopener noreferrer"
             className="font-medium text-cyan-300 transition hover:text-purple-300"
           >
-            Open full demo →
+            Open full Pfizer demo →
           </a>
         </p>
       </div>

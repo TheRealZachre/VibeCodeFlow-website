@@ -119,7 +119,7 @@ export const VCF_FOUNDERS = [
   },
 ] as const;
 
-/** Capability cards from the demo introduction page. */
+/** Capability cards from the Pfizer demo introduction page. */
 export const VCF_DEMO_CAPABILITIES = [
   {
     title: "Channel-by-channel breakdown",
@@ -139,8 +139,8 @@ export const VCF_DEMO_SHOWCASES = [
   {
     id: "corporate",
     title: "Corporate Social Analytics",
-    subtitle: "LinkedIn · X · Instagram · Facebook · YouTube",
-    body: "Full performance view across all BeOne Medicines corporate social channels. See what content themes are driving engagement, which platforms are growing, and where to focus next quarter.",
+    subtitle: "LinkedIn · X · Instagram · Facebook · YouTube · TikTok",
+    body: "Full performance view across all Pfizer corporate social channels. See what content themes are driving engagement, which platforms are growing, and where to focus next quarter.",
     hrefPath: "/reports/channels",
     cta: "View Corporate Demo",
     variant: "primary" as const,
@@ -148,8 +148,8 @@ export const VCF_DEMO_SHOWCASES = [
   {
     id: "founder",
     title: "CEO / Founder Social Analytics",
-    subtitle: "John V. Oyler · LinkedIn · X",
-    body: "Tracks the personal social media presence of John V. Oyler, Co-Founder, Chairman & CEO of BeOne Medicines. Same scoring engine as corporate — engagement rates, story beats, narrative arc, and weekly / monthly / quarterly reports.",
+    subtitle: "Albert Bourla · LinkedIn · X",
+    body: "Tracks the personal social media presence of Albert Bourla, Chairman & CEO of Pfizer. Same scoring engine as corporate — engagement rates, story beats, narrative arc, and weekly / monthly / quarterly reports.",
     hrefPath: "/founder/reports/channels",
     cta: "View CEO / Founder Demo",
     variant: "secondary" as const,
