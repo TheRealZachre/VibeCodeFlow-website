@@ -1,0 +1,36 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vibecodeflow",
+  "workers_dev": true,
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-06-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "vibecodeflow"
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "vibecodeflow.com/*",
+      "zone_name": "vibecodeflow.com"
+    },
+    {
+      "pattern": "www.vibecodeflow.com/*",
+      "zone_name": "vibecodeflow.com"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "CLOUDFLARE_WORKERS": "1",
+    "NEXTAUTH_URL": "https://vibecodeflow.com",
+    "NEXT_PUBLIC_PFIZER_DEMO_URL": "https://pfizer.vibecodeflow.com"
+  }
+}

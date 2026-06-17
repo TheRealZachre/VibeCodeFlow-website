@@ -1,4 +1,7 @@
 import type { NextConfig } from "next";
+import { loadDevVars } from "./scripts/load-dev-vars.mjs";
+
+loadDevVars();
 
 const nextConfig: NextConfig = {
   serverExternalPackages: [
@@ -56,3 +59,9 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+if (process.env.NODE_ENV !== "production") {
+  void import("@opennextjs/cloudflare").then((m) =>
+    m.initOpenNextCloudflareForDev()
+  );
+}

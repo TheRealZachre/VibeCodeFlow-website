@@ -7,15 +7,12 @@ export function HeroPreview() {
       <div className="vcf-hero-preview-glow" aria-hidden />
       <div className="vcf-glass relative overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-black/40">
         <div className="vcf-divider-gradient" />
-        <div className="flex items-center justify-between border-b border-white/8 px-4 py-3">
+        <div className="flex items-center border-b border-white/8 px-4 py-3">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
           </div>
-          <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-cyan-300">
-            Live demo
-          </span>
         </div>
 
         <div className="relative aspect-[890/1014] w-full bg-[#f4f6f9]">

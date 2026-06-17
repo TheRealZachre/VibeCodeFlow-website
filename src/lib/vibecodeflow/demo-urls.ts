@@ -1,5 +1,4 @@
-const DEFAULT_PFIZER_DEMO_URL =
-  "https://pfizer-digitaltest.zach-a56.workers.dev";
+const DEFAULT_PFIZER_DEMO_URL = "https://pfizer.vibecodeflow.com";
 
 /** Base URL for the Pfizer demonstration environment. */
 export function getPfizerDemoUrl(path = ""): string {
