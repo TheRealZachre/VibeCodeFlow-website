@@ -2,7 +2,6 @@ export const VCF_CONTACT_EMAIL = "zach@vibecodeflow.com";
 
 export const VCF_NAV_LINKS = [
   { href: "#why", label: "Why us" },
-  { href: "#services", label: "Services" },
   { href: "#platform", label: "Platform" },
   { href: "#demos", label: "Live demos" },
   { href: "#contact", label: "Contact" },

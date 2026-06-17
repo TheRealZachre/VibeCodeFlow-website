@@ -23,19 +23,10 @@ import {
   VCF_DIFFERENTIATORS,
   VCF_FOUNDERS,
   VCF_NAV_LINKS,
-  VCF_SERVICES,
 } from "@/lib/vibecodeflow/content";
 import { getPfizerDemoUrl } from "@/lib/vibecodeflow/demo-urls";
 
 const capabilityIcons = [BarChart2, Zap, Users] as const;
-
-const serviceIcons = [
-  Sparkles,
-  BarChart2,
-  Globe,
-  Zap,
-  Users,
-] as const;
 
 const appIcons = [Building2, User, Globe] as const;
 
@@ -49,7 +40,6 @@ export function MarketingSite() {
       <main className="relative">
         <HeroSection />
         <DifferenceSection />
-        <ServicesSection />
         <PlatformSection />
         <DemosSection />
         <PricingContactSection />
@@ -189,60 +179,6 @@ function DifferenceSection() {
               </p>
             </article>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ServicesSection() {
-  return (
-    <section id="services" className="relative px-5 py-24 md:px-8">
-      <div className="mx-auto max-w-6xl">
-        <SectionHead
-          eyebrow="What we do"
-          title="Communications, end to end — regulatory-aware from word one."
-        />
-
-        <div className="grid gap-4 md:grid-cols-2">
-          {VCF_SERVICES.map(({ title, items }, index) => {
-            const Icon = serviceIcons[index];
-            return (
-              <article key={title} className="vcf-card group">
-                <div className="mb-5 flex items-start justify-between gap-4">
-                  <div
-                    className="flex h-11 w-11 items-center justify-center rounded-2xl ring-1 ring-white/10"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, rgba(0,212,255,0.12) 0%, rgba(168,85,247,0.12) 100%)",
-                    }}
-                  >
-                    <Icon className="h-5 w-5 text-cyan-300" />
-                  </div>
-                  <span className="font-[family-name:var(--font-brand-mono)] text-xs text-white/25">
-                    0{index + 1}
-                  </span>
-                </div>
-                <h3 className="font-[family-name:var(--font-vcf-display)] text-xl font-semibold text-white">
-                  {title}
-                </h3>
-                <ul className="mt-4 space-y-2.5">
-                  {items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex gap-2.5 text-sm leading-relaxed text-white/50"
-                    >
-                      <span
-                        className="mt-2 h-1 w-1 shrink-0 rounded-full"
-                        style={{ background: "var(--vcf-gradient)" }}
-                      />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            );
-          })}
         </div>
       </div>
     </section>

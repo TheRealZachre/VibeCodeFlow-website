@@ -18,13 +18,14 @@ export function HeroPreview() {
           </span>
         </div>
 
-        <div className="relative aspect-[4/3] w-full bg-[#f4f6f9]">
+        <div className="relative aspect-[890/1014] w-full bg-[#f4f6f9]">
           <Image
             src={heroScreenshot}
             alt="CEO social analytics — followers, posts, engagement, reach, and impressions across LinkedIn and X"
             fill
-            className="object-cover object-center"
+            className="object-contain object-center"
             priority
+            unoptimized
             sizes="(max-width: 1024px) 100vw, 520px"
           />
         </div>
