@@ -131,23 +131,6 @@ function HeroSection() {
               <ArrowUpRight className="ml-2 h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
           </div>
-
-          <div className="mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-white/8 pt-8">
-            {[
-              { value: "3", label: "Live applications" },
-              { value: "12", label: "AI agents" },
-              { value: "48hr", label: "Readout packages" },
-            ].map(({ value, label }) => (
-              <div key={label}>
-                <p className="vcf-gradient-text font-[family-name:var(--font-vcf-display)] text-2xl font-semibold">
-                  {value}
-                </p>
-                <p className="mt-1 text-xs uppercase tracking-[0.14em] text-white/40">
-                  {label}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="vcf-fade-up vcf-fade-up-delay">
