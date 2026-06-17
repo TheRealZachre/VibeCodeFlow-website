@@ -17,14 +17,14 @@ export const BRAND_GRADIENT = {
 } as const;
 
 export const BRAND_ASSETS = {
-  iconDark: "/brand/icon-dark.svg",
-  iconLight: "/brand/icon-light.svg",
-  wordmarkWhite: "/brand/wordmark-white.svg",
-  wordmarkInk: "/brand/wordmark-ink.svg",
-  logoPrimarySpectrum: "/brand/logo-primary-spectrum.svg",
-  logoDarkIndigo: "/brand/logo-dark-indigo.svg",
-  logoLightIndigo: "/brand/logo-light-indigo.svg",
-  logoPrimarySpectrumPng: "/brand/logo-primary-spectrum@2x.png",
-  favicon: "/brand/icon-512.png",
+  iconDark: "/brand/vcf-mark-mono-white.png",
+  iconLight: "/brand/vcf-mark-mono-black.png",
+  wordmarkWhite: "/brand/vcf-lockup-horizontal-dark.png",
+  wordmarkInk: "/brand/vcf-lockup-horizontal-light.png",
+  logoPrimarySpectrum: "/brand/vcf-lockup-horizontal-dark.png",
+  logoDarkIndigo: "/brand/vcf-lockup-horizontal-dark.png",
+  logoLightIndigo: "/brand/vcf-lockup-horizontal-light.png",
+  logoPrimarySpectrumPng: "/brand/vcf-lockup-horizontal-dark.png",
+  favicon: "/brand/vcf-app-icon-dark.png",
   clientBeOneLogo: "/brand/beone-logo.jpg",
 } as const;

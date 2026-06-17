@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description:
       "Senior pharma communications expertise, producing agency-grade work in hours rather than weeks.",
     type: "website",
-    images: [{ url: VCF_BRAND.logo, alt: VCF_BRAND.logoAlt }],
+    images: [{ url: VCF_BRAND.lockupStackedDark, alt: VCF_BRAND.logoAlt }],
   },
 };
 

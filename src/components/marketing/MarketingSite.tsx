@@ -5,6 +5,7 @@ import {
   Building2,
   Check,
   Globe,
+  Mail,
   Sparkles,
   User,
   Users,
@@ -22,8 +23,6 @@ import {
   VCF_DIFFERENTIATORS,
   VCF_FOUNDERS,
   VCF_NAV_LINKS,
-  VCF_PRICING_TIERS,
-  VCF_PROJECT_PRICING,
   VCF_SERVICES,
 } from "@/lib/vibecodeflow/content";
 import { getPfizerDemoUrl } from "@/lib/vibecodeflow/demo-urls";
@@ -38,14 +37,7 @@ const serviceIcons = [
   Users,
 ] as const;
 
-const statusStyles: Record<string, string> = {
-  "Demo exists": "bg-cyan-400/15 text-cyan-300 ring-cyan-400/25",
-  "Build second": "bg-purple-400/15 text-purple-300 ring-purple-400/25",
-  "Core differentiator": "bg-sky-400/15 text-sky-300 ring-sky-400/25",
-  "In build": "bg-blue-400/15 text-blue-300 ring-blue-400/20",
-  "App 04 bundle": "bg-white/8 text-white/60 ring-white/10",
-  "In development": "bg-white/8 text-white/50 ring-white/10",
-};
+const appIcons = [Building2, User, Globe] as const;
 
 export function MarketingSite() {
   return (
@@ -60,7 +52,7 @@ export function MarketingSite() {
         <ServicesSection />
         <PlatformSection />
         <DemosSection />
-        <PricingSection />
+        <PricingContactSection />
         <FoundersSection />
         <ContactSection />
       </main>
@@ -142,7 +134,7 @@ function HeroSection() {
 
           <div className="mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-white/8 pt-8">
             {[
-              { value: "7", label: "Applications" },
+              { value: "3", label: "Live applications" },
               { value: "12", label: "AI agents" },
               { value: "48hr", label: "Readout packages" },
             ].map(({ value, label }) => (
@@ -279,48 +271,64 @@ function PlatformSection() {
     <section id="platform" className="relative px-5 py-24 md:px-8">
       <div className="mx-auto max-w-6xl">
         <SectionHead
-          eyebrow="The platform"
-          title="We build and own every tool. No external platform dependency."
-          description="Seven applications, twelve AI agents — purpose-built for pharma communications and the regulatory environment they operate in."
+          eyebrow="Hosted applications"
+          title="Built by VibeCodeFlow. Hosted by VibeCodeFlow. Yours to use."
+          description="Purpose-built analytics applications for pharma communications — hosted and maintained by us so your team gets a live, always-on intelligence layer with no infrastructure overhead."
         />
 
-        <div className="grid gap-3">
-          {VCF_APPLICATIONS.map((app) => (
-            <article
-              key={app.num}
-              className="vcf-glass group flex flex-col gap-4 rounded-2xl border border-white/8 p-5 transition hover:border-cyan-400/20 hover:bg-white/[0.04] sm:flex-row sm:items-center sm:justify-between"
-            >
-              <div className="flex min-w-0 items-start gap-4">
-                <span className="vcf-gradient-text font-[family-name:var(--font-brand-mono)] text-sm">
-                  {app.num}
-                </span>
-                <div>
-                  {"demoKey" in app ? (
-                    <a
-                      href={getPfizerDemoUrl("/reports/channels")}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-[family-name:var(--font-vcf-display)] text-lg font-semibold text-white transition group-hover:text-cyan-200"
-                    >
-                      {app.name}
-                    </a>
-                  ) : (
-                    <h3 className="font-[family-name:var(--font-vcf-display)] text-lg font-semibold text-white">
-                      {app.name}
-                    </h3>
-                  )}
-                  <p className="mt-1 font-[family-name:var(--font-brand-mono)] text-sm text-white/45">
-                    {app.tech}
-                  </p>
-                </div>
-              </div>
-              <span
-                className={`inline-flex w-fit shrink-0 rounded-full px-3 py-1 text-[11px] font-medium uppercase tracking-wider ring-1 ${statusStyles[app.status] ?? "bg-white/8 text-white/50 ring-white/10"}`}
+        <div className="grid gap-4 md:grid-cols-3">
+          {VCF_APPLICATIONS.map((app, index) => {
+            const Icon = appIcons[index];
+            return (
+              <article
+                key={app.num}
+                className="vcf-card vcf-card-featured group flex flex-col"
               >
-                {app.status}
-              </span>
-            </article>
-          ))}
+                <div className="mb-5 flex items-start justify-between gap-4">
+                  <div
+                    className="flex h-11 w-11 items-center justify-center rounded-2xl ring-1 ring-cyan-400/20"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, rgba(0,212,255,0.18) 0%, rgba(168,85,247,0.18) 100%)",
+                    }}
+                  >
+                    <Icon className="h-5 w-5 text-cyan-300" />
+                  </div>
+                  <span className="inline-flex items-center rounded-full bg-cyan-400/15 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-cyan-300 ring-1 ring-cyan-400/25">
+                    {app.status}
+                  </span>
+                </div>
+                <h3 className="font-[family-name:var(--font-vcf-display)] text-lg font-semibold text-white">
+                  {app.name}
+                </h3>
+                <p className="mt-1 font-[family-name:var(--font-brand-mono)] text-xs text-white/40">
+                  {app.tech}
+                </p>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-white/50">
+                  {app.description}
+                </p>
+              </article>
+            );
+          })}
+        </div>
+
+        {/* Coming soon notice */}
+        <div className="mt-6 flex items-center gap-4 rounded-2xl border border-white/8 bg-white/[0.02] px-6 py-5">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-purple-400/10 ring-1 ring-purple-400/20">
+            <Sparkles className="h-4 w-4 text-purple-300" />
+          </div>
+          <div>
+            <p className="text-sm font-semibold text-white/80">New tools coming soon</p>
+            <p className="mt-0.5 text-sm text-white/45">
+              More hosted applications are in development — C-Suite content engines, website SEO advisors, video production suites, and more.{" "}
+              <a
+                href={`mailto:${VCF_CONTACT_EMAIL}`}
+                className="font-medium text-cyan-300 transition hover:text-purple-300"
+              >
+                Reach out to learn what&apos;s next.
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -334,7 +342,7 @@ function DemosSection() {
         <SectionHead
           eyebrow="Live demos"
           title="See the platform in action."
-          description="A full Pfizer-branded demonstration — corporate social analytics, CEO profile tracking, and Wikipedia monitoring with live sample data."
+          description="A full BeOne Medicines demonstration — corporate social analytics, CEO profile tracking, and Wikipedia monitoring with live sample data."
         />
 
         <div className="mb-8 grid gap-4 md:grid-cols-3">
@@ -432,7 +440,7 @@ function DemosSection() {
             rel="noopener noreferrer"
             className="font-medium text-cyan-300 transition hover:text-purple-300"
           >
-            Open full Pfizer demo →
+            Open full demo →
           </a>
         </p>
       </div>
@@ -440,54 +448,36 @@ function DemosSection() {
   );
 }
 
-function PricingSection() {
+function PricingContactSection() {
   return (
     <section id="pricing" className="relative px-5 py-24 md:px-8">
       <div className="mx-auto max-w-6xl">
         <SectionHead
           eyebrow="Engagements"
-          title="Monthly retainers, sized to your stage."
-          description="Annual contract value is monthly × 12. 12-month initial term, monthly billing, 10% annual prepay discount."
+          title="Pricing tailored to your stage and scope."
+          description="We structure engagements as monthly retainers or project-based — sized to your pipeline stage, communications volume, and the applications you need. No off-the-shelf tiers."
           centered
         />
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {VCF_PRICING_TIERS.map(({ tier, amount, fit, featured }) => (
-            <article
-              key={tier}
-              className={
-                featured
-                  ? "vcf-card vcf-card-featured relative overflow-hidden"
-                  : "vcf-card"
-              }
-            >
-              {featured && <div className="vcf-divider-gradient absolute inset-x-0 top-0" />}
-              <p className="text-xs font-medium uppercase tracking-[0.14em] text-white/40">
-                {tier}
-              </p>
-              <p className="mt-4 font-[family-name:var(--font-vcf-display)] text-3xl font-semibold tracking-tight text-white">
-                {amount}
-              </p>
-              <p className="text-sm text-white/40">/ month</p>
-              <p className="mt-5 border-t border-white/8 pt-5 text-sm leading-relaxed text-white/50">
-                {fit}
-              </p>
-            </article>
-          ))}
-        </div>
-
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {VCF_PROJECT_PRICING.map(({ label, amount }) => (
-            <div
-              key={label}
-              className="rounded-2xl border border-white/8 bg-white/[0.02] p-4 transition hover:border-purple-400/20 hover:bg-white/[0.04]"
-            >
-              <p className="text-sm font-medium text-white/85">{label}</p>
-              <p className="mt-2 font-[family-name:var(--font-brand-mono)] text-sm text-cyan-300">
-                {amount}
-              </p>
+        <div className="vcf-contact-band relative overflow-hidden rounded-[2rem] border border-white/10 px-6 py-14 text-center md:px-12 md:py-16">
+          <div className="vcf-contact-glow pointer-events-none absolute inset-0" aria-hidden />
+          <div className="relative">
+            <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-400/10 ring-1 ring-cyan-400/20">
+              <Mail className="h-6 w-6 text-cyan-300" />
             </div>
-          ))}
+            <h3 className="font-[family-name:var(--font-vcf-display)] text-[clamp(1.5rem,3vw,2.25rem)] font-semibold text-white">
+              Contact us for pricing details
+            </h3>
+            <p className="mx-auto mt-4 max-w-lg text-base text-white/55">
+              Tell us what you&apos;re working on and we&apos;ll put together a proposal. Hosted applications with VibeCodeFlow — built to fit your team.
+            </p>
+            <a
+              href={`mailto:${VCF_CONTACT_EMAIL}`}
+              className="vcf-btn vcf-btn-glow mt-8 inline-flex"
+            >
+              {VCF_CONTACT_EMAIL}
+            </a>
+          </div>
         </div>
       </div>
     </section>

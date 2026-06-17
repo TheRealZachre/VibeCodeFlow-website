@@ -46,9 +46,9 @@ export function BrandLogo({
       <Image
         src={BRAND_ASSETS.iconDark}
         alt={PLATFORM_NAME}
-        width={36}
-        height={36}
-        className="h-9 w-9 shrink-0"
+        width={48}
+        height={48}
+        className="h-9 w-9 shrink-0 object-contain"
         priority
       />
     );
@@ -59,9 +59,9 @@ export function BrandLogo({
       <Image
         src={BRAND_ASSETS.logoPrimarySpectrumPng}
         alt={PLATFORM_NAME}
-        width={640}
-        height={160}
-        className="h-auto w-full max-w-xl"
+        width={598}
+        height={120}
+        className="h-auto w-full max-w-xl object-contain"
         priority
       />
     );
@@ -72,9 +72,9 @@ export function BrandLogo({
       <Image
         src={BRAND_ASSETS.wordmarkWhite}
         alt={PLATFORM_NAME}
-        width={220}
-        height={36}
-        className="h-7 w-auto max-w-[11.5rem]"
+        width={598}
+        height={120}
+        className="h-7 w-auto max-w-[11.5rem] object-contain"
         priority
       />
       {showTagline && (

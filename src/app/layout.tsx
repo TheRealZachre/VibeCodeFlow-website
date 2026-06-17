@@ -38,7 +38,9 @@ export const metadata: Metadata = {
   description:
     `Unified organic and paid social media reporting with creative previews, competitor benchmarking, and budget recommendations by ${PLATFORM_NAME}`,
   icons: {
-    icon: BRAND_ASSETS.favicon,
+    icon: [
+      { url: BRAND_ASSETS.favicon, sizes: "512x512", type: "image/png" },
+    ],
     apple: BRAND_ASSETS.favicon,
   },
 };

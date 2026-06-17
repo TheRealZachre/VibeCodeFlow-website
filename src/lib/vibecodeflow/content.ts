@@ -1,11 +1,11 @@
-export const VCF_CONTACT_EMAIL = "hello@vibecodeflow.com";
+export const VCF_CONTACT_EMAIL = "zach@vibecodeflow.com";
 
 export const VCF_NAV_LINKS = [
   { href: "#why", label: "Why us" },
   { href: "#services", label: "Services" },
   { href: "#platform", label: "Platform" },
   { href: "#demos", label: "Live demos" },
-  { href: "#pricing", label: "Pricing" },
+  { href: "#contact", label: "Contact" },
 ] as const;
 
 export const VCF_DIFFERENTIATORS = [
@@ -75,85 +75,35 @@ export const VCF_SERVICES = [
   },
 ] as const;
 
+/** The three live hosted applications. */
 export const VCF_APPLICATIONS = [
   {
     num: "01",
-    name: "Analytics & Insights Dashboard",
-    status: "Demo exists",
-    tech: "Meta MCP + Claude Code",
+    name: "Corporate Social Analytics",
+    status: "Live" as const,
+    tech: "Multi-platform · Meta MCP · Claude",
     demoKey: "corporate" as const,
+    description:
+      "Full performance view across all corporate social channels — LinkedIn, X, Instagram, Facebook, YouTube, and TikTok — with narrative scoring and quarterly reporting.",
   },
   {
     num: "02",
-    name: "C-Suite Content Engine",
-    status: "Build second",
-    tech: "Claude API + voice profiles",
+    name: "CEO / Founder Social Analytics",
+    status: "Live" as const,
+    tech: "LinkedIn · X · Claude",
+    demoKey: "founder" as const,
+    description:
+      "Tracks the personal social presence of your CEO or founder — same scoring engine as corporate, with executive-level narrative arc and voice analysis.",
   },
   {
     num: "03",
-    name: "Website SEO Audit & Advisor",
-    status: "Core differentiator",
-    tech: "Firecrawl + Brave + Claude",
+    name: "Wikipedia Analytics",
+    status: "Live" as const,
+    tech: "Wikipedia API · Claude",
+    demoKey: "wikipedia" as const,
+    description:
+      "Monitors article health and visibility — quality grades, open maintenance flags, pageview trends, and AI editorial recommendations for both corporate and CEO articles.",
   },
-  {
-    num: "04",
-    name: "AI Video Production Suite",
-    status: "In build",
-    tech: "ElevenLabs + Descript",
-  },
-  {
-    num: "05",
-    name: "YouTube SEO Optimizer",
-    status: "App 04 bundle",
-    tech: "YouTube Data API + Claude",
-  },
-  {
-    num: "06",
-    name: "Clinical Trial Comms Engine",
-    status: "In development",
-    tech: "Claude API + domain config",
-  },
-  {
-    num: "07",
-    name: "Crisis Comms Engine",
-    status: "In development",
-    tech: "Claude API + domain config",
-  },
-] as const;
-
-export const VCF_PRICING_TIERS = [
-  {
-    tier: "Launchpad",
-    amount: "$7.5K–12K",
-    fit: "Pre-seed to Series A biotech, building a voice.",
-    featured: false,
-  },
-  {
-    tier: "Momentum",
-    amount: "$15K–22K",
-    fit: "Series B+ clinical, steady news flow.",
-    featured: false,
-  },
-  {
-    tier: "Catalyst",
-    amount: "$25K–40K",
-    fit: "Late-stage, approaching readout or launch.",
-    featured: true,
-  },
-  {
-    tier: "Commercial",
-    amount: "$40K–65K+",
-    fit: "Commercial specialty pharma, multi-brand.",
-    featured: false,
-  },
-] as const;
-
-export const VCF_PROJECT_PRICING = [
-  { label: "Clinical readout package", amount: "$15K–35K" },
-  { label: "Crisis activation", amount: "$25K–50K" },
-  { label: "Launch readiness strategy", amount: "$75K–150K" },
-  { label: "Congress package (ASCO/ASH/ESMO)", amount: "$5K–12K" },
-  { label: "White-label, per seat", amount: "$5K / mo" },
 ] as const;
 
 export const VCF_FOUNDERS = [
@@ -169,7 +119,7 @@ export const VCF_FOUNDERS = [
   },
 ] as const;
 
-/** Capability cards from the Pfizer demo introduction page. */
+/** Capability cards from the demo introduction page. */
 export const VCF_DEMO_CAPABILITIES = [
   {
     title: "Channel-by-channel breakdown",
@@ -189,30 +139,30 @@ export const VCF_DEMO_SHOWCASES = [
   {
     id: "corporate",
     title: "Corporate Social Analytics",
-    subtitle: "LinkedIn · X · Instagram · Facebook · YouTube · TikTok",
-    body: "Full performance view across all Pfizer corporate social channels. See what content themes are driving engagement, which platforms are growing, and where to focus next quarter.",
+    subtitle: "LinkedIn · X · Instagram · Facebook · YouTube",
+    body: "Full performance view across all BeOne Medicines corporate social channels. See what content themes are driving engagement, which platforms are growing, and where to focus next quarter.",
     hrefPath: "/reports/channels",
     cta: "View Corporate Demo",
     variant: "primary" as const,
   },
   {
     id: "founder",
-    title: "Founder / CEO Social Analytics",
-    subtitle: "Albert Bourla · LinkedIn · X",
-    body: "Tracks the personal social media presence of Albert Bourla, Chairman & CEO of Pfizer. Same scoring engine as corporate — engagement rates, story beats, narrative arc, and weekly / monthly / quarterly reports.",
+    title: "CEO / Founder Social Analytics",
+    subtitle: "John V. Oyler · LinkedIn · X",
+    body: "Tracks the personal social media presence of John V. Oyler, Co-Founder, Chairman & CEO of BeOne Medicines. Same scoring engine as corporate — engagement rates, story beats, narrative arc, and weekly / monthly / quarterly reports.",
     hrefPath: "/founder/reports/channels",
-    cta: "View Founder / CEO Demo",
+    cta: "View CEO / Founder Demo",
     variant: "secondary" as const,
   },
   {
     id: "wikipedia",
     title: "Wikipedia Analytics",
-    subtitle: "Corporate page · Founder / CEO page",
+    subtitle: "Corporate page · CEO / Founder page",
     body: "Monitors Wikipedia health and visibility — article quality grades, open maintenance flags, pageview trends, and AI-powered editorial review with specific recommendations. Covers both the corporate article and the CEO article.",
     hrefPath: "/wikipedia/corporate",
     cta: "Corporate Wikipedia",
     variant: "primary" as const,
     secondaryHrefPath: "/wikipedia/founder-ceo",
-    secondaryCta: "Founder / CEO Wikipedia",
+    secondaryCta: "CEO / Founder Wikipedia",
   },
 ] as const;

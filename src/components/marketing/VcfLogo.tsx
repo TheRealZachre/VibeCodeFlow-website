@@ -2,13 +2,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { VCF_BRAND } from "@/lib/vibecodeflow/brand";
 
-const sizes = {
-  nav: { height: 120, width: 120, className: "h-10 w-auto" },
-  hero: { height: 512, width: 512, className: "h-auto w-full max-w-[240px] sm:max-w-[280px]" },
-  footer: { height: 120, width: 120, className: "h-12 w-auto" },
+const configs = {
+  nav: {
+    src: VCF_BRAND.lockupHorizontalDark,
+    width: 598,
+    height: 120,
+    className: "h-9 w-auto",
+  },
+  hero: {
+    src: VCF_BRAND.lockupStackedDark,
+    width: 512,
+    height: 512,
+    className: "h-auto w-full max-w-[200px] sm:max-w-[240px]",
+  },
+  footer: {
+    src: VCF_BRAND.lockupHorizontalDark,
+    width: 598,
+    height: 120,
+    className: "h-10 w-auto",
+  },
+  mark: {
+    src: VCF_BRAND.markGradient,
+    width: 512,
+    height: 300,
+    className: "h-10 w-auto",
+  },
 } as const;
 
-type VcfLogoSize = keyof typeof sizes;
+type VcfLogoSize = keyof typeof configs;
 
 interface VcfLogoProps {
   size?: VcfLogoSize;
@@ -23,11 +44,11 @@ export function VcfLogo({
   className = "",
   priority = false,
 }: VcfLogoProps) {
-  const { height, width, className: sizeClass } = sizes[size];
+  const { src, width, height, className: sizeClass } = configs[size];
 
   const image = (
     <Image
-      src={VCF_BRAND.logo}
+      src={src}
       alt={VCF_BRAND.logoAlt}
       width={width}
       height={height}
