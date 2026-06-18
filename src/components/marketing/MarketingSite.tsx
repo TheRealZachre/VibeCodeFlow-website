@@ -370,7 +370,7 @@ function FoundersSection() {
           centered
         />
 
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="mx-auto max-w-2xl">
           {VCF_FOUNDERS.map(({ role, name, bio }) => {
             const initials = name
               .split(" ")

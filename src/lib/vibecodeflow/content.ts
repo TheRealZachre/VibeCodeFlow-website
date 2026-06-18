@@ -113,14 +113,9 @@ export const VCF_APPLICATIONS = [
 
 export const VCF_FOUNDERS = [
   {
-    role: "Co-founder · Strategy & Intelligence",
+    role: "Founder · Strategy & Intelligence",
     name: "Zach Randles-Friedman",
     bio: "Decades in pharma communications: narrative strategy, competitive intelligence, analytics, investor communications, KOL strategy, and executive positioning. The strategic and regulatory judgment behind every engagement — and the person clients call before a high-stakes moment.",
-  },
-  {
-    role: "Co-founder · Creative & Technology",
-    name: "Matthew Gelineau",
-    bio: "About a decade across biotech, pharma, Harvard Medical School, and advertising — in content, video, digital strategy, and creative direction. Leads the technical build: Claude Code, MCP integrations, application development, and deployment.",
   },
 ] as const;
 
