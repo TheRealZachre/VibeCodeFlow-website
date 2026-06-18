@@ -1,0 +1,89 @@
+{
+  "leadInMs": 3646,
+  "segments": [
+    {
+      "id": "intro",
+      "label": "Introduction",
+      "narration": "Important: all data in this demo is public-facing — nothing confidential is shown. This is Pfizer Digital Analytics from Vibe Code Flow, giving communications teams a unified view of corporate and executive social performance.",
+      "startMs": 1,
+      "durationMs": 13990
+    },
+    {
+      "id": "corporate",
+      "label": "Corporate all channels",
+      "narration": "The all-channels view rolls up Pfizer's social performance — followers, posts, engagement, reach, and impressions across LinkedIn, X, Instagram, Facebook, YouTube, and TikTok.",
+      "startMs": 14442,
+      "durationMs": 11810
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn deep dive",
+      "narration": "On LinkedIn, every post gets a full qualitative breakdown. What Worked explains why the content landed. Improvements flags what's holding engagement back, with specific suggested changes. Narrative Role shows where each post fits in Pfizer's corporate story arc — and those action recommendations translate directly into updates for your digital strategy and quarterly planning.",
+      "startMs": 27027,
+      "durationMs": 22370
+    },
+    {
+      "id": "platforms",
+      "label": "Multi-platform views",
+      "narration": "Each platform gets the same treatment — channel KPIs, story-beat breakdowns, and post-level scoring for X, Instagram, YouTube, and TikTok.",
+      "startMs": 50250,
+      "durationMs": 9430
+    },
+    {
+      "id": "weekly",
+      "label": "Weekly narrative arc",
+      "narration": "The weekly report compares this week against last week and maps posts onto a narrative arc — so you can see whether Pfizer is building story momentum or publishing in isolation.",
+      "startMs": 60018,
+      "durationMs": 9580
+    },
+    {
+      "id": "monthly",
+      "label": "Monthly post performance",
+      "narration": "Monthly reporting rolls up post performance across every channel with a direct comparison to the prior month, surfacing top performers and posts that need a strategy reset.",
+      "startMs": 70335,
+      "durationMs": 9840
+    },
+    {
+      "id": "quarterly",
+      "label": "Quarterly executive summary",
+      "narration": "The quarterly one-pager connects post-level insights to Strategic Recommendations — concrete actions on content mix, paid support, and competitor gaps that leadership can use to update Pfizer's digital strategy and resource plans for the next quarter.",
+      "startMs": 80834,
+      "durationMs": 13820
+    },
+    {
+      "id": "ceo",
+      "label": "CEO all channels",
+      "narration": "Switch to CEO analytics for Albert Bourla's personal LinkedIn and X presence — the same scoring engine, tuned for executive communications.",
+      "startMs": 94850,
+      "durationMs": 8520
+    },
+    {
+      "id": "ceo-linkedin",
+      "label": "CEO LinkedIn",
+      "narration": "Review individual CEO posts with deep-dive analysis: engagement, narrative role, and specific recommendations for the executive voice.",
+      "startMs": 104317,
+      "durationMs": 8830
+    },
+    {
+      "id": "ceo-x",
+      "label": "CEO X",
+      "narration": "The CEO's X channel gets the same post-level scoring and narrative insights, keeping executive social performance in one place.",
+      "startMs": 114033,
+      "durationMs": 7820
+    },
+    {
+      "id": "wikipedia",
+      "label": "Wikipedia corporate",
+      "narration": "Wikipedia is critical because it ranks at the top of Google and other search engines. When investors, journalists, or employees search for Pfizer, the Wikipedia article is often the first link they click. This view tracks pageview trends, maintenance flags, and editorial recommendations. Important: Wikipedia is an open-source platform — it cannot be updated or edited by Pfizer directly. Changes must come from the volunteer community that runs Wikipedia. For additional insights and strategy regarding your presence on Wikipedia, please contact Vibe Code Flow for more information and advice.",
+      "startMs": 122466,
+      "durationMs": 36600
+    },
+    {
+      "id": "wikipedia-ceo",
+      "label": "Wikipedia CEO",
+      "narration": "The same applies to executive profiles — Albert Bourla's Wikipedia page shapes first impressions in search results. As with the corporate article, only the Wikipedia community can edit the page, not the company itself. Vibe Code Flow can help you interpret these signals and plan the right community engagement strategy.",
+      "startMs": 159421,
+      "durationMs": 18820
+    }
+  ]
+}

@@ -23,6 +23,8 @@
 # misc
 .DS_Store
 *.pem
+.demo-outro-work/
+public/marketing/pfizer-analytics-demo.source.mp4
 
 # debug
 npm-debug.log*

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>VCF Demo Outro</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        color: #ffffff;
+        background: #0a0c12;
+      }
+
+      .mesh {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 80% 60% at 20% 10%, rgba(0, 212, 255, 0.14), transparent 55%),
+          radial-gradient(ellipse 70% 55% at 85% 85%, rgba(168, 85, 247, 0.16), transparent 55%),
+          radial-gradient(ellipse 50% 40% at 50% 50%, rgba(59, 130, 246, 0.08), transparent 60%);
+      }
+
+      .frame {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        padding: 80px;
+        text-align: center;
+      }
+
+      .logo {
+        width: 420px;
+        height: auto;
+        margin-bottom: 12px;
+      }
+
+      .thanks {
+        font-size: 64px;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+      }
+
+      .contact {
+        max-width: 1100px;
+        font-size: 34px;
+        line-height: 1.45;
+        color: rgba(255, 255, 255, 0.88);
+      }
+
+      .brand {
+        font-size: 52px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        background: linear-gradient(90deg, #00d4ff 0%, #3b82f6 52%, #a855f7 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .email {
+        margin-top: 8px;
+        font-size: 40px;
+        font-weight: 500;
+        color: #00d4ff;
+        letter-spacing: 0.01em;
+      }
+
+      .rule {
+        width: 120px;
+        height: 4px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #00d4ff 0%, #3b82f6 52%, #a855f7 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mesh" aria-hidden="true"></div>
+    <div class="frame">
+      <img class="logo" src="../public/brand/vcf-lockup-stacked-dark.png" alt="" />
+      <p class="thanks">Thank you</p>
+      <div class="rule" aria-hidden="true"></div>
+      <p class="contact">Contact Zach Randles-Friedman at</p>
+      <p class="brand">Vibe · Code · Flow</p>
+      <p class="email">zach@vibecodeflow.com</p>
+    </div>
+  </body>
+</html>

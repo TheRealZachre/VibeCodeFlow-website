@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type RefObject } from "react";
 import Image from "next/image";
 import { Captions, Maximize2, Play, Volume2, X } from "lucide-react";
 import {
+  VCF_CONTACT_EMAIL,
   VCF_HERO_DEMO_POSTER,
   VCF_HERO_DEMO_SUBTITLES,
   VCF_HERO_DEMO_VIDEO,
@@ -17,19 +18,89 @@ function VideoLogoWatermark({ className = "" }: { className?: string }) {
       aria-hidden
     >
       <Image
-        src={VCF_BRAND.lockupStackedDark}
+        src={VCF_BRAND.lockupHorizontalDark}
         alt=""
+        width={598}
+        height={120}
+        className="h-8 w-auto opacity-90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)] sm:h-9 md:h-10"
+      />
+    </div>
+  );
+}
+
+function VideoCardFooter() {
+  return (
+    <div className="flex flex-col items-center gap-3 border-t border-white/8 bg-white/[0.02] px-4 py-5 md:px-5">
+      <Image
+        src={VCF_BRAND.lockupHorizontalDark}
+        alt={VCF_BRAND.logoAlt}
+        width={598}
+        height={120}
+        className="h-9 w-auto opacity-95 sm:h-10"
+      />
+      <p className="text-center text-xs text-white/45 md:text-sm">
+        Contact Zach Randles-Friedman ·{" "}
+        <a
+          href={`mailto:${VCF_CONTACT_EMAIL}`}
+          className="text-cyan-300/90 transition hover:text-cyan-200"
+        >
+          {VCF_CONTACT_EMAIL}
+        </a>
+      </p>
+    </div>
+  );
+}
+
+function VideoEndOverlay({
+  show,
+  onReplay,
+}: {
+  show: boolean;
+  onReplay: () => void;
+}) {
+  if (!show) return null;
+
+  return (
+    <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 bg-[#0a0c12]/94 px-6 text-center backdrop-blur-sm">
+      <Image
+        src={VCF_BRAND.lockupStackedDark}
+        alt={VCF_BRAND.logoAlt}
         width={512}
         height={512}
-        className="h-10 w-auto opacity-90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)] sm:h-12 md:h-14"
+        className="h-24 w-auto sm:h-28 md:h-32"
       />
+      <p className="font-[family-name:var(--font-vcf-display)] text-2xl font-semibold text-white md:text-3xl">
+        Thank you
+      </p>
+      <p className="max-w-md text-sm leading-relaxed text-white/70 md:text-base">
+        Contact Zach Randles-Friedman at Vibe Code Flow
+      </p>
+      <a
+        href={`mailto:${VCF_CONTACT_EMAIL}`}
+        className="text-base font-medium text-cyan-300 transition hover:text-cyan-200 md:text-lg"
+      >
+        {VCF_CONTACT_EMAIL}
+      </a>
+      <button
+        type="button"
+        onClick={onReplay}
+        className="mt-2 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/15"
+      >
+        <Play className="h-4 w-4 fill-current" />
+        Watch again
+      </button>
     </div>
   );
 }
 
 function VideoPlaybackNote() {
   return (
-    <div className="border-b border-white/8 bg-white/[0.03] px-4 py-3 md:px-5">
+    <div className="space-y-2 border-b border-white/8 bg-white/[0.03] px-4 py-3 md:px-5">
+      <p className="text-xs leading-relaxed text-white/55 md:text-sm">
+        <span className="font-medium text-white/75">Demonstration example:</span>{" "}
+        This walkthrough uses Pfizer to show the platform in action. The same
+        analytics capabilities can be configured for any company.
+      </p>
       <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs leading-relaxed text-white/55 md:text-sm">
         <span className="font-medium text-white/75">Narrated walkthrough</span>
         <span className="hidden text-white/25 sm:inline" aria-hidden>
@@ -55,10 +126,12 @@ function DemoVideo({
   className = "",
   videoRef,
   autoPlay = false,
+  onEnded,
 }: {
   className?: string;
   videoRef?: RefObject<HTMLVideoElement | null>;
   autoPlay?: boolean;
+  onEnded?: () => void;
 }) {
   return (
     <video
@@ -67,6 +140,7 @@ function DemoVideo({
       controls={autoPlay}
       playsInline
       autoPlay={autoPlay}
+      onEnded={onEnded}
       aria-label="Pfizer digital analytics platform walkthrough"
     >
       <source src={VCF_HERO_DEMO_VIDEO} type="video/mp4" />
@@ -83,9 +157,11 @@ function DemoVideo({
 
 export function HeroPreview() {
   const [open, setOpen] = useState(false);
+  const [ended, setEnded] = useState(false);
   const modalVideoRef = useRef<HTMLVideoElement>(null);
 
   const openLightbox = () => {
+    setEnded(false);
     setOpen(true);
     requestAnimationFrame(() => {
       const video = modalVideoRef.current;
@@ -99,7 +175,16 @@ export function HeroPreview() {
 
   const closeLightbox = () => {
     modalVideoRef.current?.pause();
+    setEnded(false);
     setOpen(false);
+  };
+
+  const replayVideo = () => {
+    const video = modalVideoRef.current;
+    if (!video) return;
+    setEnded(false);
+    video.currentTime = 0;
+    video.play().catch(() => {});
   };
 
   useEffect(() => {
@@ -132,7 +217,7 @@ export function HeroPreview() {
               <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
             </div>
             <p className="ml-3 flex-1 text-xs font-medium text-white/45 md:text-sm">
-              Pfizer analytics platform demo
+              Analytics platform demo · Pfizer example
             </p>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-medium text-white/55 md:text-xs">
               <Maximize2 className="h-3.5 w-3.5" />
@@ -166,10 +251,13 @@ export function HeroPreview() {
               <VideoLogoWatermark />
             </div>
           </button>
+
+          <VideoCardFooter />
         </div>
 
         <p className="mt-2 text-center text-sm text-white/45">
-          Click the video to enlarge it and play the full narrated walkthrough.
+          Pfizer is shown as a demonstration example. Click the video to play the
+          full narrated walkthrough with closed captions.
         </p>
       </div>
 
@@ -199,10 +287,13 @@ export function HeroPreview() {
               <DemoVideo
                 videoRef={modalVideoRef}
                 autoPlay
+                onEnded={() => setEnded(true)}
                 className="aspect-video max-h-[85vh] w-full bg-black object-contain"
               />
-              <VideoLogoWatermark className="md:bottom-5 md:right-5" />
+              {!ended && <VideoLogoWatermark className="md:bottom-5 md:right-5" />}
+              <VideoEndOverlay show={ended} onReplay={replayVideo} />
             </div>
+            <VideoCardFooter />
           </div>
         </div>
       )}
