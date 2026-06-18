@@ -1,9 +1,12 @@
 export const VCF_CONTACT_EMAIL = "zach@vibecodeflow.com";
 
+export const VCF_HERO_DEMO_VIDEO = "/marketing/pfizer-analytics-demo.mp4";
+export const VCF_HERO_DEMO_POSTER = "/marketing/pfizer-analytics-demo-poster.jpg";
+
 export const VCF_NAV_LINKS = [
   { href: "#why", label: "Why us" },
   { href: "#platform", label: "Platform" },
-  { href: "#demos", label: "Live demos" },
+  { href: "#capabilities", label: "Capabilities" },
   { href: "#contact", label: "Contact" },
 ] as const;
 
@@ -74,32 +77,26 @@ export const VCF_SERVICES = [
   },
 ] as const;
 
-/** The three live hosted applications. */
+/** The three hosted applications. */
 export const VCF_APPLICATIONS = [
   {
     num: "01",
     name: "Corporate Social Analytics",
-    status: "Live" as const,
     tech: "Multi-platform · Meta MCP · Claude",
-    demoKey: "corporate" as const,
     description:
       "Full performance view across all corporate social channels — LinkedIn, X, Instagram, Facebook, YouTube, and TikTok — with narrative scoring and quarterly reporting.",
   },
   {
     num: "02",
     name: "CEO / Founder Social Analytics",
-    status: "Live" as const,
     tech: "LinkedIn · X · Claude",
-    demoKey: "founder" as const,
     description:
       "Tracks the personal social presence of your CEO or founder — same scoring engine as corporate, with executive-level narrative arc and voice analysis.",
   },
   {
     num: "03",
     name: "Wikipedia Analytics",
-    status: "Live" as const,
     tech: "Wikipedia API · Claude",
-    demoKey: "wikipedia" as const,
     description:
       "Monitors article health and visibility — quality grades, open maintenance flags, pageview trends, and AI editorial recommendations for both corporate and CEO articles.",
   },
@@ -118,8 +115,8 @@ export const VCF_FOUNDERS = [
   },
 ] as const;
 
-/** Capability cards from the Pfizer demo introduction page. */
-export const VCF_DEMO_CAPABILITIES = [
+/** Platform capability highlights. */
+export const VCF_PLATFORM_CAPABILITIES = [
   {
     title: "Channel-by-channel breakdown",
     body: "See exactly how LinkedIn, X, Instagram, Facebook, YouTube, and TikTok are performing — followers, reach, engagement rate, and CTR all in one place.",
@@ -134,34 +131,26 @@ export const VCF_DEMO_CAPABILITIES = [
   },
 ] as const;
 
-export const VCF_DEMO_SHOWCASES = [
+export const VCF_PLATFORM_SHOWCASES = [
   {
     id: "corporate",
     title: "Corporate Social Analytics",
     subtitle: "LinkedIn · X · Instagram · Facebook · YouTube · TikTok",
-    body: "Full performance view across all Pfizer corporate social channels. See what content themes are driving engagement, which platforms are growing, and where to focus next quarter.",
-    hrefPath: "/reports/channels",
-    cta: "View Corporate Demo",
+    body: "Full performance view across all corporate social channels. See what content themes are driving engagement, which platforms are growing, and where to focus next quarter.",
     variant: "primary" as const,
   },
   {
     id: "founder",
     title: "CEO / Founder Social Analytics",
-    subtitle: "Albert Bourla · LinkedIn · X",
-    body: "Tracks the personal social media presence of Albert Bourla, Chairman & CEO of Pfizer. Same scoring engine as corporate — engagement rates, story beats, narrative arc, and weekly / monthly / quarterly reports.",
-    hrefPath: "/founder/reports/channels",
-    cta: "View CEO / Founder Demo",
+    subtitle: "Executive LinkedIn · X",
+    body: "Tracks the personal social presence of your CEO or founder — engagement rates, story beats, narrative arc, and weekly, monthly, and quarterly reports.",
     variant: "secondary" as const,
   },
   {
     id: "wikipedia",
     title: "Wikipedia Analytics",
     subtitle: "Corporate page · CEO / Founder page",
-    body: "Monitors Wikipedia health and visibility — article quality grades, open maintenance flags, pageview trends, and AI-powered editorial review with specific recommendations. Covers both the corporate article and the CEO article.",
-    hrefPath: "/wikipedia/corporate",
-    cta: "Corporate Wikipedia",
+    body: "Monitors Wikipedia health and visibility — article quality grades, open maintenance flags, pageview trends, and AI-powered editorial review with specific recommendations for corporate and executive articles.",
     variant: "primary" as const,
-    secondaryHrefPath: "/wikipedia/founder-ceo",
-    secondaryCta: "CEO / Founder Wikipedia",
   },
 ] as const;

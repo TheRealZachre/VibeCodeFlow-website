@@ -9,11 +9,17 @@ const configs = {
     height: 120,
     className: "h-9 w-auto",
   },
+  header: {
+    src: VCF_BRAND.lockupStackedDark,
+    width: 512,
+    height: 512,
+    className: "h-11 w-auto max-w-[92px] object-contain object-left sm:max-w-[104px]",
+  },
   hero: {
     src: VCF_BRAND.lockupStackedDark,
     width: 512,
     height: 512,
-    className: "h-auto w-full max-w-[200px] sm:max-w-[240px]",
+    className: "h-auto w-full max-w-[140px] sm:max-w-[180px] md:max-w-[220px]",
   },
   footer: {
     src: VCF_BRAND.lockupHorizontalDark,

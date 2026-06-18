@@ -30,7 +30,6 @@
   },
   "vars": {
     "CLOUDFLARE_WORKERS": "1",
-    "NEXTAUTH_URL": "https://vibecodeflow.com",
-    "NEXT_PUBLIC_PFIZER_DEMO_URL": "https://pfizer.vibecodeflow.com"
+    "NEXTAUTH_URL": "https://vibecodeflow.com"
   }
 }

@@ -16,6 +16,8 @@ export const VCF_BRAND = {
   appIconDark: "/brand/vcf-app-icon-dark.png",
   /** App icon — teal gradient background */
   appIconLight: "/brand/vcf-app-icon-light.png",
+  /** Original primary logo — compact mark for nav */
+  logoPrimary: "/brand/vcf-logo-primary.png",
   /** @deprecated use lockupHorizontalDark */
   logo: "/brand/vcf-lockup-horizontal-dark.png",
   logoAlt: "Vibe Code Flow",
