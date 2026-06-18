@@ -1,9 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import Image from "next/image";
-import { Maximize2, Play, X } from "lucide-react";
-import { VCF_HERO_DEMO_POSTER, VCF_HERO_DEMO_VIDEO } from "@/lib/vibecodeflow/content";
+import { Captions, Maximize2, Play, Volume2, X } from "lucide-react";
+import {
+  VCF_HERO_DEMO_POSTER,
+  VCF_HERO_DEMO_SUBTITLES,
+  VCF_HERO_DEMO_VIDEO,
+} from "@/lib/vibecodeflow/content";
 import { VCF_BRAND } from "@/lib/vibecodeflow/brand";
 
 function VideoLogoWatermark({ className = "" }: { className?: string }) {
@@ -23,6 +27,60 @@ function VideoLogoWatermark({ className = "" }: { className?: string }) {
   );
 }
 
+function VideoPlaybackNote() {
+  return (
+    <div className="border-b border-white/8 bg-white/[0.03] px-4 py-3 md:px-5">
+      <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs leading-relaxed text-white/55 md:text-sm">
+        <span className="font-medium text-white/75">Narrated walkthrough</span>
+        <span className="hidden text-white/25 sm:inline" aria-hidden>
+          ·
+        </span>
+        <span className="inline-flex items-center gap-1.5">
+          <Volume2 className="h-3.5 w-3.5 shrink-0 text-cyan-300/80" aria-hidden />
+          Turn up your volume for narration
+        </span>
+        <span className="text-white/25" aria-hidden>
+          ·
+        </span>
+        <span className="inline-flex items-center gap-1.5">
+          <Captions className="h-3.5 w-3.5 shrink-0 text-cyan-300/80" aria-hidden />
+          Or enable closed captions after you press play
+        </span>
+      </p>
+    </div>
+  );
+}
+
+function DemoVideo({
+  className = "",
+  videoRef,
+  autoPlay = false,
+}: {
+  className?: string;
+  videoRef?: RefObject<HTMLVideoElement | null>;
+  autoPlay?: boolean;
+}) {
+  return (
+    <video
+      ref={videoRef}
+      className={className}
+      controls={autoPlay}
+      playsInline
+      autoPlay={autoPlay}
+      aria-label="Pfizer digital analytics platform walkthrough"
+    >
+      <source src={VCF_HERO_DEMO_VIDEO} type="video/mp4" />
+      <track
+        kind="subtitles"
+        src={VCF_HERO_DEMO_SUBTITLES}
+        srcLang="en"
+        label="English"
+        default
+      />
+    </video>
+  );
+}
+
 export function HeroPreview() {
   const [open, setOpen] = useState(false);
   const modalVideoRef = useRef<HTMLVideoElement>(null);
@@ -30,7 +88,12 @@ export function HeroPreview() {
   const openLightbox = () => {
     setOpen(true);
     requestAnimationFrame(() => {
-      modalVideoRef.current?.play().catch(() => {});
+      const video = modalVideoRef.current;
+      if (!video) return;
+      for (const track of video.textTracks) {
+        track.mode = "showing";
+      }
+      video.play().catch(() => {});
     });
   };
 
@@ -77,6 +140,8 @@ export function HeroPreview() {
             </span>
           </div>
 
+          <VideoPlaybackNote />
+
           <button
             type="button"
             onClick={openLightbox}
@@ -104,7 +169,7 @@ export function HeroPreview() {
         </div>
 
         <p className="mt-2 text-center text-sm text-white/45">
-          Click the video to enlarge it and play the full walkthrough with narration.
+          Click the video to enlarge it and play the full narrated walkthrough.
         </p>
       </div>
 
@@ -129,16 +194,13 @@ export function HeroPreview() {
             className="relative w-full max-w-6xl overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-black/60"
             onClick={(event) => event.stopPropagation()}
           >
+            <VideoPlaybackNote />
             <div className="relative">
-              <video
-                ref={modalVideoRef}
+              <DemoVideo
+                videoRef={modalVideoRef}
+                autoPlay
                 className="aspect-video max-h-[85vh] w-full bg-black object-contain"
-                controls
-                playsInline
-                aria-label="Enlarged Pfizer digital analytics platform walkthrough"
-              >
-                <source src={VCF_HERO_DEMO_VIDEO} type="video/mp4" />
-              </video>
+              />
               <VideoLogoWatermark className="md:bottom-5 md:right-5" />
             </div>
           </div>

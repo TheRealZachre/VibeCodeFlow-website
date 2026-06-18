@@ -2,6 +2,7 @@ export const VCF_CONTACT_EMAIL = "zach@vibecodeflow.com";
 
 export const VCF_HERO_DEMO_VIDEO = "/marketing/pfizer-analytics-demo.mp4";
 export const VCF_HERO_DEMO_POSTER = "/marketing/pfizer-analytics-demo-poster.jpg";
+export const VCF_HERO_DEMO_SUBTITLES = "/marketing/pfizer-analytics-demo.vtt";
 export const VCF_PLATFORM_OVERVIEW_URL = "/marketing/platform-overview-one-pager.html";
 export const VCF_PLATFORM_OVERVIEW_PDF = "/marketing/platform-overview-one-pager.pdf";
 
