@@ -22,12 +22,17 @@ export function MobileNav() {
       {open && (
         <div className="absolute inset-x-0 top-[calc(100%+12px)] z-50 rounded-2xl border border-white/10 bg-[rgba(8,12,18,0.96)] p-4 shadow-2xl shadow-black/40 backdrop-blur-xl md:hidden">
           <nav className="flex flex-col gap-1">
-            {VCF_NAV_LINKS.map(({ href, label }) => (
+            {VCF_NAV_LINKS.map(({ href, label, ...link }) => (
               <a
                 key={href}
                 href={href}
                 onClick={() => setOpen(false)}
-                className="rounded-xl px-4 py-3 text-sm text-white/70 transition hover:bg-white/5 hover:text-white"
+                {...("external" in link && link.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className={`rounded-xl px-4 py-3 text-sm text-white/70 transition hover:bg-white/5 hover:text-white${
+                  "spacedBefore" in link && link.spacedBefore ? " mt-4" : ""
+                }`}
               >
                 {label}
               </a>

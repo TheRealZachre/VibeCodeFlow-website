@@ -60,11 +60,16 @@ function SiteHeader() {
               <MobileNav />
             </div>
             <nav className="hidden items-center gap-1 md:flex">
-              {VCF_NAV_LINKS.map(({ href, label }) => (
+              {VCF_NAV_LINKS.map(({ href, label, ...link }) => (
                 <a
                   key={href}
                   href={href}
-                  className="rounded-full px-3.5 py-2 text-sm text-white/60 transition hover:bg-white/5 hover:text-white"
+                  {...("external" in link && link.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className={`rounded-full px-3.5 py-2 text-sm text-white/60 transition hover:bg-white/5 hover:text-white${
+                    "spacedBefore" in link && link.spacedBefore ? " ml-6" : ""
+                  }`}
                 >
                   {label}
                 </a>

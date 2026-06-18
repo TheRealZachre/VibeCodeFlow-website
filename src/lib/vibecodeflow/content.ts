@@ -2,12 +2,20 @@ export const VCF_CONTACT_EMAIL = "zach@vibecodeflow.com";
 
 export const VCF_HERO_DEMO_VIDEO = "/marketing/pfizer-analytics-demo.mp4";
 export const VCF_HERO_DEMO_POSTER = "/marketing/pfizer-analytics-demo-poster.jpg";
+export const VCF_PLATFORM_OVERVIEW_URL = "/marketing/platform-overview-one-pager.html";
+export const VCF_PLATFORM_OVERVIEW_PDF = "/marketing/platform-overview-one-pager.pdf";
 
 export const VCF_NAV_LINKS = [
   { href: "#why", label: "Why us" },
   { href: "#platform", label: "Platform" },
   { href: "#capabilities", label: "Capabilities" },
   { href: "#contact", label: "Contact" },
+  {
+    href: VCF_PLATFORM_OVERVIEW_URL,
+    label: "Platform Overview Download",
+    external: true,
+    spacedBefore: true,
+  },
 ] as const;
 
 export const VCF_DIFFERENTIATORS = [
