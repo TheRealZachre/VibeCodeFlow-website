@@ -6,35 +6,34 @@
     <title>Pharma Best Company Digital Analytics — Platform Overview</title>
     <style>
       :root {
-        --ink: #003d7a;
-        --indigo: #0072c6;
-        --indigo-bright: #0088e8;
-        --muted: #5a6e82;
-        --off-white: #f0f5fa;
-        --paper: #ffffff;
-        --emerald: #047857;
-        --red: #c8102e;
+        --bg: #07090f;
+        --surface: #0e1220;
+        --surface-2: #131726;
+        --border: rgba(255,255,255,0.08);
+        --border-cyan: rgba(0,212,255,0.22);
+        --cyan: #00d4ff;
+        --cyan-dim: rgba(0,212,255,0.65);
+        --purple: #a855f7;
+        --text: #f0f4ff;
+        --text-muted: rgba(240,244,255,0.52);
+        --text-dim: rgba(240,244,255,0.32);
+        --emerald: #10b981;
+        --red: #f87171;
+        --amber: #fbbf24;
+        --gradient: linear-gradient(135deg, #00d4ff 0%, #a855f7 100%);
       }
 
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
 
-      @page {
-        size: letter;
-        margin: 0.42in 0.48in;
-      }
+      @page { size: letter; margin: 0.35in 0.4in; }
 
-      html,
-      body {
+      html, body {
         width: 100%;
-        background: var(--paper);
-        color: var(--ink);
+        background: var(--bg);
+        color: var(--text);
         font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-        font-size: 9.25pt;
-        line-height: 1.38;
+        font-size: 9pt;
+        line-height: 1.45;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
@@ -45,444 +44,458 @@
         min-height: 10in;
         display: flex;
         flex-direction: column;
-        gap: 0.85rem;
+        gap: 0.7rem;
       }
 
+      /* ── HEADER ── */
       .header {
         display: flex;
-        align-items: stretch;
+        align-items: center;
         justify-content: space-between;
         gap: 1rem;
-        padding: 0.72rem 0.85rem;
-        border-radius: 12px;
-        background: linear-gradient(135deg, var(--ink) 0%, #001f3d 100%);
-        color: white;
+        padding: 0.65rem 0.85rem;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #0d1a2e 0%, #0a0f1e 100%);
+        border: 1px solid var(--border-cyan);
+        position: relative;
+        overflow: hidden;
+      }
+      .header::before {
+        content: "";
+        position: absolute;
+        top: -40px; right: -40px;
+        width: 180px; height: 180px;
+        background: radial-gradient(circle, rgba(0,212,255,0.12) 0%, transparent 70%);
+        pointer-events: none;
       }
 
-      .header-brand {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-      }
+      .header-left { display: flex; align-items: center; gap: 0.75rem; }
 
-      .header-brand img {
-        height: 28px;
-        width: auto;
+      .header-monogram {
+        width: 38px; height: 38px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, rgba(0,212,255,0.2) 0%, rgba(168,85,247,0.2) 100%);
+        border: 1px solid var(--border-cyan);
+        display: grid; place-items: center;
+        font-size: 13pt; font-weight: 900;
+        letter-spacing: -0.03em;
+        background-clip: text;
+        color: var(--cyan);
+        flex-shrink: 0;
       }
 
       .header-divider {
-        width: 1px;
-        align-self: stretch;
-        background: rgba(255, 255, 255, 0.22);
+        width: 1px; align-self: stretch;
+        background: rgba(255,255,255,0.12);
       }
 
       .header-title {
-        font-size: 13pt;
-        font-weight: 700;
-        letter-spacing: -0.02em;
+        font-size: 12pt; font-weight: 800;
+        letter-spacing: -0.025em;
+        color: var(--text);
       }
-
       .header-sub {
-        margin-top: 0.12rem;
-        font-size: 8pt;
-        color: rgba(255, 255, 255, 0.68);
-      }
-
-      .header-meta {
-        text-align: right;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 0.15rem;
-      }
-
-      .header-meta .badge {
-        align-self: flex-end;
-        padding: 0.18rem 0.45rem;
-        border-radius: 999px;
-        background: rgba(0, 136, 232, 0.22);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        font-size: 7pt;
-        font-weight: 600;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-
-      .header-meta .vcf {
-        font-size: 8pt;
-        font-weight: 600;
-        color: rgba(255, 255, 255, 0.88);
-      }
-
-      .header-meta .url {
+        margin-top: 0.1rem;
         font-size: 7.5pt;
-        color: rgba(255, 255, 255, 0.55);
+        color: var(--text-muted);
+        letter-spacing: 0.01em;
       }
 
+      .header-right {
+        text-align: right;
+        display: flex; flex-direction: column;
+        align-items: flex-end; gap: 0.18rem;
+      }
+      .badge {
+        display: inline-block;
+        padding: 0.15rem 0.5rem;
+        border-radius: 999px;
+        border: 1px solid var(--border-cyan);
+        background: rgba(0,212,255,0.1);
+        font-size: 6.5pt; font-weight: 700;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        color: var(--cyan-dim);
+      }
+      .header-brand-name {
+        font-size: 8pt; font-weight: 700;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .header-url { font-size: 7pt; color: var(--text-dim); }
+
+      /* ── HERO ── */
       .hero {
-        padding-bottom: 0.35rem;
+        padding: 0.55rem 0.85rem 0.55rem;
+        border-radius: 14px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        position: relative; overflow: hidden;
       }
-
-      .hero-copy h1 {
-        font-size: 18pt;
-        line-height: 1.1;
+      .hero::after {
+        content: "";
+        position: absolute; bottom: -30px; right: -30px;
+        width: 200px; height: 200px;
+        background: radial-gradient(circle, rgba(168,85,247,0.09) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .hero h1 {
+        font-size: 16pt; font-weight: 800;
         letter-spacing: -0.03em;
-        font-weight: 700;
-        color: var(--ink);
-        max-width: 36rem;
+        line-height: 1.08;
+        color: var(--text);
+        max-width: 32rem;
+      }
+      .hero h1 span {
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero p {
+        margin-top: 0.45rem;
+        max-width: 44rem;
+        color: var(--text-muted);
+        font-size: 8.75pt;
+        line-height: 1.55;
       }
 
-      .hero-copy p {
-        margin-top: 0.65rem;
-        max-width: 42rem;
-        color: var(--muted);
-        font-size: 9.5pt;
-        line-height: 1.52;
-      }
-
+      /* ── LABEL ── */
       .section-label {
-        font-size: 7pt;
-        font-weight: 700;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--indigo);
-        margin-bottom: 0.45rem;
+        font-size: 6.5pt; font-weight: 700;
+        letter-spacing: 0.15em; text-transform: uppercase;
+        color: var(--cyan-dim);
+        margin-bottom: 0.4rem;
       }
 
-      .modules {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.62rem;
-      }
+      /* ── MODULES ── */
+      .modules { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.55rem; }
 
       .module {
-        border: 1px solid rgba(0, 61, 122, 0.12);
-        border-radius: 10px;
-        padding: 0.65rem 0.72rem;
-        background: white;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 0.65rem 0.7rem;
+        background: var(--surface);
+        display: flex; flex-direction: column; gap: 0.3rem;
       }
-
       .module.featured {
-        border-color: rgba(0, 114, 198, 0.28);
-        background: linear-gradient(180deg, rgba(0, 114, 198, 0.06) 0%, white 100%);
+        border-color: var(--border-cyan);
+        background: linear-gradient(160deg, rgba(0,212,255,0.07) 0%, var(--surface) 60%);
       }
-
       .module-head {
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-        margin-bottom: 0.35rem;
+        display: flex; align-items: center; gap: 0.45rem;
+        margin-bottom: 0.1rem;
       }
-
-      .module-icon {
-        width: 22px;
-        height: 22px;
-        border-radius: 6px;
-        display: grid;
-        place-items: center;
-        background: var(--ink);
-        color: white;
-        font-size: 10px;
-        font-weight: 700;
+      .module-num {
+        width: 22px; height: 22px; border-radius: 7px;
+        display: grid; place-items: center;
+        background: linear-gradient(135deg, rgba(0,212,255,0.2) 0%, rgba(168,85,247,0.2) 100%);
+        border: 1px solid var(--border-cyan);
+        font-size: 7.5pt; font-weight: 800;
+        color: var(--cyan); flex-shrink: 0;
       }
-
       .module h3 {
-        font-size: 9pt;
-        font-weight: 700;
-        line-height: 1.15;
+        font-size: 8.75pt; font-weight: 700;
+        line-height: 1.2; color: var(--text);
       }
-
       .module .channels {
-        margin-top: 0.12rem;
-        font-size: 7pt;
-        color: var(--muted);
+        font-size: 6.75pt; color: var(--text-dim);
+        margin-top: 0.05rem; letter-spacing: 0.01em;
       }
-
       .module p {
-        font-size: 7.75pt;
-        color: var(--muted);
-        line-height: 1.42;
+        font-size: 7.5pt; color: var(--text-muted);
+        line-height: 1.45;
       }
-
       .module ul {
-        margin-top: 0.35rem;
-        padding-left: 0.95rem;
-        font-size: 7.5pt;
-        color: var(--muted);
+        padding-left: 0.85rem; margin-top: 0.2rem;
+        display: flex; flex-direction: column; gap: 0.12rem;
       }
+      .module li { font-size: 7.25pt; color: var(--text-muted); line-height: 1.38; }
 
-      .module li + li {
-        margin-top: 0.12rem;
-      }
-
+      /* ── ANALYSIS ROW ── */
       .analysis-row {
-        display: grid;
-        grid-template-columns: 0.95fr 1.05fr;
-        gap: 0.5rem;
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 0.55rem;
       }
 
       .panel {
-        border: 1px solid rgba(0, 61, 122, 0.12);
-        border-radius: 10px;
-        padding: 0.55rem 0.62rem;
-        background: white;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 0.6rem 0.7rem;
+        background: var(--surface);
       }
 
       .insight-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.4rem;
+        display: grid; grid-template-columns: repeat(3,1fr);
+        gap: 0.35rem; margin-top: 0.1rem;
       }
-
       .insight {
         border-radius: 8px;
-        padding: 0.45rem 0.5rem;
-        min-height: 4.1rem;
+        padding: 0.38rem 0.45rem;
       }
-
-      .insight.worked {
-        background: #ecfdf5;
-        border: 1px solid #a7f3d0;
-      }
-
-      .insight.improve {
-        background: #fef2f2;
-        border: 1px solid #fecaca;
-      }
-
-      .insight.narrative {
-        background: #eff6ff;
-        border: 1px solid #bfdbfe;
-      }
+      .insight.worked  { background: rgba(16,185,129,0.1);  border: 1px solid rgba(16,185,129,0.25);  }
+      .insight.improve { background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.25); }
+      .insight.narrative { background: rgba(0,212,255,0.07); border: 1px solid rgba(0,212,255,0.18); }
 
       .insight h4 {
-        font-size: 7pt;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        margin-bottom: 0.2rem;
+        font-size: 6.5pt; font-weight: 700;
+        letter-spacing: 0.1em; text-transform: uppercase;
+        margin-bottom: 0.15rem;
       }
+      .insight.worked h4    { color: var(--emerald); }
+      .insight.improve h4   { color: var(--red); }
+      .insight.narrative h4 { color: var(--cyan); }
+      .insight p { font-size: 7pt; color: var(--text-muted); line-height: 1.4; }
 
-      .insight.worked h4 {
-        color: var(--emerald);
-      }
-
-      .insight.improve h4 {
-        color: var(--red);
-      }
-
-      .insight.narrative h4 {
-        color: var(--indigo);
-      }
-
-      .insight p {
-        font-size: 7.25pt;
-        color: var(--muted);
-        line-height: 1.38;
+      .panel-note {
+        margin-top: 0.3rem;
+        font-size: 7pt; color: var(--text-dim); line-height: 1.38;
       }
 
       .cadence-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.4rem;
+        display: grid; grid-template-columns: repeat(3,1fr);
+        gap: 0.35rem; margin-top: 0.1rem;
       }
-
       .cadence {
-        border-radius: 8px;
-        padding: 0.45rem 0.5rem;
-        background: var(--off-white);
-        border: 1px solid rgba(0, 61, 122, 0.08);
+        border-radius: 8px; padding: 0.42rem 0.48rem;
+        background: rgba(255,255,255,0.035);
+        border: 1px solid var(--border);
       }
-
       .cadence h4 {
-        font-size: 8pt;
-        font-weight: 700;
-        color: var(--ink);
+        font-size: 8pt; font-weight: 700;
+        color: var(--text); margin-bottom: 0.12rem;
+      }
+      .cadence p { font-size: 7pt; color: var(--text-muted); line-height: 1.4; }
+
+      /* ── COMPARISON TABLE ── */
+      .compare-wrap {
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        overflow: hidden;
+      }
+      .compare-header {
+        display: grid; grid-template-columns: 100px 1fr 1fr 1.15fr;
+      }
+      .compare-header-cell {
+        padding: 0.38rem 0.5rem;
+        text-align: center;
+        font-size: 6.75pt; font-weight: 800;
+        letter-spacing: 0.1em; text-transform: uppercase;
+      }
+      .compare-header-cell.label-col { background: rgba(255,255,255,0.02); }
+      .compare-header-cell.bad-col {
+        background: rgba(255,255,255,0.025);
+        border-left: 1px solid var(--border);
+        color: rgba(240,244,255,0.4);
+      }
+      .compare-header-cell.us-col {
+        border-left: 1px solid var(--border-cyan);
+        background: linear-gradient(180deg, rgba(0,212,255,0.12) 0%, rgba(0,212,255,0.05) 100%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .compare-row {
+        display: grid; grid-template-columns: 100px 1fr 1fr 1.15fr;
+        border-top: 1px solid var(--border);
+      }
+      .compare-cell {
+        padding: 0.32rem 0.5rem;
+        font-size: 7.25pt; line-height: 1.35;
+        display: flex; align-items: center;
+      }
+      .compare-cell.row-label {
+        background: rgba(255,255,255,0.015);
+        font-weight: 700; font-size: 6.75pt;
+        text-transform: uppercase; letter-spacing: 0.08em;
+        color: rgba(240,244,255,0.5);
+      }
+      .compare-cell.bad {
+        border-left: 1px solid var(--border);
+        color: rgba(240,244,255,0.35);
+        justify-content: center; text-align: center;
+      }
+      .compare-cell.good {
+        border-left: 1px solid var(--border-cyan);
+        background: rgba(0,212,255,0.04);
+        color: var(--cyan-dim);
+        font-weight: 600;
+        justify-content: center; text-align: center;
       }
 
-      .cadence p {
-        margin-top: 0.15rem;
-        font-size: 7.25pt;
-        color: var(--muted);
-        line-height: 1.38;
-      }
-
-      .wiki-box {
-        border-radius: 10px;
-        padding: 0.55rem 0.62rem;
-        border: 1px solid rgba(0, 114, 198, 0.18);
-        background: linear-gradient(90deg, rgba(0, 114, 198, 0.07) 0%, rgba(0, 61, 122, 0.04) 100%);
-      }
-
-      .wiki-box h3 {
-        font-size: 9pt;
-        font-weight: 700;
-      }
-
-      .wiki-box p {
-        margin-top: 0.25rem;
-        font-size: 7.5pt;
-        color: var(--muted);
-        line-height: 1.42;
-      }
-
-      .wiki-columns {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.55rem;
-        margin-top: 0.35rem;
-      }
-
-      .wiki-columns ul {
-        padding-left: 0.95rem;
-        font-size: 7.25pt;
-        color: var(--muted);
-      }
-
-      .wiki-columns li + li {
-        margin-top: 0.12rem;
-      }
-
+      /* ── FOOTER ── */
       .footer {
         margin-top: auto;
         padding-top: 0.35rem;
-        border-top: 1px solid rgba(0, 61, 122, 0.12);
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        gap: 1rem;
+        border-top: 1px solid var(--border);
+        display: flex; justify-content: space-between;
+        align-items: flex-end; gap: 1rem;
+      }
+      .footer-cta strong {
+        display: block; font-size: 8.25pt; font-weight: 700; color: var(--text);
+      }
+      .footer-cta a {
+        color: var(--cyan); text-decoration: none;
+        font-size: 8pt; font-weight: 600;
+      }
+      .footer-cta .url { font-size: 7pt; color: var(--text-dim); margin-top: 0.1rem; }
+      .footer-fine {
+        max-width: 4in; text-align: right;
+        font-size: 6.5pt; color: var(--text-dim); line-height: 1.4;
       }
 
-      .footer .contact {
-        font-size: 8pt;
+      /* ── VALUE STRIP ── */
+      .value-strip {
+        display: grid; grid-template-columns: repeat(4,1fr);
+        gap: 0.45rem;
       }
-
-      .footer .contact strong {
-        display: block;
-        font-size: 8.5pt;
-        color: var(--ink);
+      .value-item {
+        border-radius: 10px; padding: 0.45rem 0.55rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        text-align: center;
       }
-
-      .footer .contact a {
-        color: var(--indigo);
-        text-decoration: none;
-        font-weight: 600;
+      .value-item .val {
+        font-size: 14pt; font-weight: 900;
+        letter-spacing: -0.03em;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
       }
-
-      .footer .fine {
-        max-width: 4.2in;
-        text-align: right;
-        font-size: 6.75pt;
-        color: var(--muted);
-        line-height: 1.35;
+      .value-item .lbl {
+        margin-top: 0.18rem;
+        font-size: 7pt; font-weight: 600; color: var(--text);
+      }
+      .value-item .sub {
+        font-size: 6.25pt; color: var(--text-dim); margin-top: 0.08rem; line-height: 1.35;
       }
 
       @media screen {
-        body {
-          padding: 1.5rem;
-          background: #e8eef4;
-        }
-
+        body { padding: 1.5rem; background: #04060a; }
         .page {
-          background: white;
-          padding: 0.55in 0.48in;
-          box-shadow: 0 18px 50px rgba(0, 31, 61, 0.12);
-          border-radius: 4px;
+          background: var(--bg);
+          padding: 0.5in 0.45in;
+          box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+          border-radius: 6px;
+          border: 1px solid rgba(255,255,255,0.05);
         }
       }
     </style>
   </head>
   <body>
     <article class="page">
+
+      <!-- HEADER -->
       <header class="header">
-        <div class="header-brand">
-          <div style="font-size: 15pt; font-weight: 800; letter-spacing: -0.02em; color: white;">PBC</div>
+        <div class="header-left">
+          <div class="header-monogram">PBC</div>
           <div class="header-divider"></div>
           <div>
             <div class="header-title">Pharma Best Company Digital Analytics</div>
-            <div class="header-sub">Unified Social &amp; Search Intelligence For Communications Teams</div>
+            <div class="header-sub">Unified Social &amp; Search Intelligence · Powered by Vibe.Code.Flow.</div>
           </div>
         </div>
-        <div class="header-meta">
+        <div class="header-right">
           <span class="badge">Platform Overview</span>
-          <span class="vcf">Powered by Vibe Code Flow</span>
-          <span class="url">vibecodeflow.com</span>
+          <span class="header-brand-name">Vibe.Code.Flow.</span>
+          <span class="header-url">vibecodeflow.com</span>
         </div>
       </header>
 
+      <!-- HERO -->
       <section class="hero">
-        <div class="hero-copy">
-          <h1>One Dashboard. Every Channel. Actionable Insight For Corporate And Executive Communications.</h1>
-          <p>
-            Pharma Best Company Digital Analytics gives communications teams a unified view of corporate and executive
-            social performance — plus Wikipedia visibility that shapes search results. Live data pulls,
-            post-level scoring, narrative arc tracking, and leadership-ready reporting without spreadsheets
-            or manual channel exports.
-          </p>
-        </div>
+        <h1>One Dashboard. Every Channel.<br><span>Always Actionable.</span></h1>
+        <p>
+          A unified view of corporate and executive social performance — plus Wikipedia visibility that shapes search results.
+          Live data, post-level scoring, narrative arc tracking, and leadership-ready reporting.
+          No spreadsheets. No manual exports. Just insight and direction.
+        </p>
       </section>
 
+      <!-- VALUE STRIP -->
+      <div class="value-strip">
+        <div class="value-item">
+          <div class="val">6+</div>
+          <div class="lbl">Platforms Tracked</div>
+          <div class="sub">LinkedIn, X, Instagram, Facebook, YouTube, TikTok</div>
+        </div>
+        <div class="value-item">
+          <div class="val">3×</div>
+          <div class="lbl">Reporting Cadences</div>
+          <div class="sub">Weekly, monthly, and quarterly — always ready</div>
+        </div>
+        <div class="value-item">
+          <div class="val">Days</div>
+          <div class="lbl">Time to Live</div>
+          <div class="sub">Configured fast. Reporting from day one.</div>
+        </div>
+        <div class="value-item">
+          <div class="val">0</div>
+          <div class="lbl">Spreadsheets Needed</div>
+          <div class="sub">Everything in one place, ready to share</div>
+        </div>
+      </div>
+
+      <!-- THREE MODULES -->
       <section>
         <div class="section-label">Three Integrated Modules</div>
         <div class="modules">
           <article class="module featured">
             <div class="module-head">
-              <div class="module-icon">01</div>
+              <div class="module-num">01</div>
               <div>
                 <h3>Corporate Social Analytics</h3>
                 <div class="channels">All-Channels Rollup · Cross-Platform KPIs</div>
               </div>
             </div>
-            <p>
-              Rolls up Pharma Best Company corporate performance — followers, posts, engagement, reach, and impressions
-              across every major platform in one view.
-            </p>
+            <p>Full performance view — followers, posts, engagement, reach, and impressions across every platform in one place.</p>
             <ul>
-              <li>Channel KPIs And Story-Beat Breakdowns</li>
-              <li>Organic Vs. Paid Split (When Connected)</li>
-              <li>Top Performers And Underperformers By Post</li>
+              <li>Channel KPIs and story-beat breakdowns</li>
+              <li>Organic vs. paid split (when connected)</li>
+              <li>Top performers and underperformers by post</li>
             </ul>
           </article>
 
           <article class="module">
             <div class="module-head">
-              <div class="module-icon">02</div>
+              <div class="module-num">02</div>
               <div>
-                <h3>CEO Social Analytics</h3>
-                <div class="channels">CEO · LinkedIn &amp; X</div>
+                <h3>CEO / Founder Social Analytics</h3>
+                <div class="channels">Executive LinkedIn · X</div>
               </div>
             </div>
-            <p>
-              Same scoring engine, tuned for executive communications — tracking the CEO's personal
-              LinkedIn and X presence alongside corporate channels.
-            </p>
+            <p>Same scoring engine, tuned for executive communications — tracking personal presence alongside corporate channels.</p>
             <ul>
-              <li>Executive Post Deep Dives With Voice Analysis</li>
-              <li>Engagement, Narrative Role, And Recommendations</li>
-              <li>Weekly, Monthly, And Quarterly Executive Reports</li>
+              <li>Executive post deep dives with voice analysis</li>
+              <li>Engagement, narrative role, and recommendations</li>
+              <li>Weekly, monthly, and quarterly executive reports</li>
             </ul>
           </article>
 
           <article class="module">
             <div class="module-head">
-              <div class="module-icon">03</div>
+              <div class="module-num">03</div>
               <div>
                 <h3>Wikipedia Analytics</h3>
                 <div class="channels">Corporate Article · CEO Profile</div>
               </div>
             </div>
-            <p>
-              Monitors article health and search visibility — critical because Wikipedia often ranks
-              first when investors, journalists, or employees search for Pharma Best Company or its leadership.
-            </p>
+            <p>Monitors article health — critical because Wikipedia often ranks first when investors, journalists, or employees search for your company.</p>
             <ul>
-              <li>Daily Pageview Trends And Maintenance Flags</li>
-              <li>Editor's Review With Editorial Recommendations</li>
-              <li>Separate Views For Corporate And CEO Articles</li>
+              <li>Daily pageview trends and maintenance flags</li>
+              <li>AI editorial review with recommendations</li>
+              <li>Separate views for corporate and CEO articles</li>
             </ul>
           </article>
         </div>
       </section>
 
+      <!-- ANALYSIS + CADENCE -->
       <section class="analysis-row">
         <div class="panel">
           <div class="section-label">Per-Post Qualitative Analysis</div>
@@ -493,16 +506,15 @@
             </div>
             <div class="insight improve">
               <h4>Improvements</h4>
-              <p>Flags what's holding engagement back, with specific suggested changes for the next post.</p>
+              <p>Flags what's holding engagement back with specific suggested changes for the next post.</p>
             </div>
             <div class="insight narrative">
               <h4>Narrative Role</h4>
-              <p>Shows where each post fits in Pharma Best Company's corporate story arc and executive voice strategy.</p>
+              <p>Shows where each post fits in the corporate story arc and executive voice strategy.</p>
             </div>
           </div>
-          <p style="margin-top: 0.35rem; font-size: 7.25pt; color: var(--muted);">
-            Recommendations translate directly into digital strategy updates and quarterly planning — not
-            just metrics, but why posts succeed or stall.
+          <p class="panel-note">
+            Not just metrics — every report tells you why posts succeed or stall, and exactly what to do next.
           </p>
         </div>
 
@@ -511,52 +523,77 @@
           <div class="cadence-grid">
             <div class="cadence">
               <h4>Weekly</h4>
-              <p>Week-over-week comparison and narrative arc — see whether Pharma Best Company is building story momentum or publishing in isolation.</p>
+              <p>Week-over-week comparison and narrative arc — see whether momentum is building or stalling.</p>
             </div>
             <div class="cadence">
               <h4>Monthly</h4>
-              <p>Post performance rolled up across every channel with month-over-month comparison and top-performer identification.</p>
+              <p>Post performance rolled up across every channel with top-performer identification.</p>
             </div>
             <div class="cadence">
               <h4>Quarterly</h4>
-              <p>Executive one-pager with strategic recommendations on content mix, paid support, and competitor gaps for leadership planning.</p>
+              <p>Executive one-pager with strategic recommendations on content mix and competitor gaps.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="wiki-box">
-        <h3>Wikipedia Strategy Note</h3>
-        <p>
-          Wikipedia is an open-source platform — it cannot be updated or edited by Pharma Best Company directly. Changes
-          must come from the volunteer community that runs Wikipedia. Vibe Code Flow helps interpret pageview
-          signals, maintenance flags, and editorial recommendations — and plan the right community engagement
-          strategy for both corporate and executive articles.
-        </p>
-        <div class="wiki-columns">
-          <ul>
-            <li>Corporate Pharma Best Company Article — Search Visibility &amp; Article Health</li>
-            <li>CEO Profile — Executive Search Results</li>
-          </ul>
-          <ul>
-            <li>Open Issues And Maintenance Flags Surfaced Automatically</li>
-            <li>Contact Vibe Code Flow For Wikipedia Strategy And Advice</li>
-          </ul>
+      <!-- COMPARISON TABLE -->
+      <section>
+        <div class="section-label">Why Vibe.Code.Flow.</div>
+        <div class="compare-wrap">
+          <div class="compare-header">
+            <div class="compare-header-cell label-col"></div>
+            <div class="compare-header-cell bad-col">Traditional Agencies</div>
+            <div class="compare-header-cell bad-col">Generic Analytics Tools</div>
+            <div class="compare-header-cell us-col">Vibe.Code.Flow.</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell row-label">Speed</div>
+            <div class="compare-cell bad">Weeks to a first draft</div>
+            <div class="compare-cell bad">Fast but shallow</div>
+            <div class="compare-cell good">Hours, not weeks</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell row-label">Domain</div>
+            <div class="compare-cell bad">Expert, no AI scale</div>
+            <div class="compare-cell bad">No pharma context</div>
+            <div class="compare-cell good">Tells you what resonates — and why</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell row-label">Direction</div>
+            <div class="compare-cell bad">Reports only</div>
+            <div class="compare-cell bad">Data, no answers</div>
+            <div class="compare-cell good">Post-level recommendations every report</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell row-label">Cost</div>
+            <div class="compare-cell bad">High retainer fees</div>
+            <div class="compare-cell bad">Enterprise pricing</div>
+            <div class="compare-cell good">A fraction of the cost</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-cell row-label">Setup</div>
+            <div class="compare-cell bad">Weeks of onboarding</div>
+            <div class="compare-cell bad">Complex, IT required</div>
+            <div class="compare-cell good">Live in days, reporting from day one</div>
+          </div>
         </div>
       </section>
 
+      <!-- FOOTER -->
       <footer class="footer">
-        <div class="contact">
-          <strong>Learn More · Schedule A Walkthrough</strong>
+        <div class="footer-cta">
+          <strong>Schedule a Walkthrough</strong>
           <a href="mailto:zach@vibecodeflow.com">zach@vibecodeflow.com</a>
-          <div style="margin-top: 0.15rem; color: var(--muted); font-size: 7.25pt;">vibecodeflow.com</div>
+          <div class="url">vibecodeflow.com · calendly.com/vibecodeflow</div>
         </div>
-        <p class="fine">
-          Pharma Best Company Digital Analytics is a demonstration platform built by Vibe Code Flow. Production deployment
-          requires a license. Paid social integration available once API access is provisioned. © 2026
-          Vibe Code Flow.
+        <p class="footer-fine">
+          This is a demonstration platform built by Vibe.Code.Flow. for Pharma Best Company.
+          Production deployment requires a license agreement. Paid social integration available once API access is provisioned.
+          © 2026 Vibe.Code.Flow.
         </p>
       </footer>
+
     </article>
   </body>
 </html>
