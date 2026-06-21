@@ -105,9 +105,11 @@ function HeroSection() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/55 md:text-xl">
-            Senior pharma/biotech communications expertise, producing agency-grade work
-            in hours rather than weeks — custom to each client. We listen to
-            your problem, then design and build the solution.
+            Senior pharma and biotech communications expertise.
+            <br />
+            Agency-grade work in a fraction of the time. Insights automated in real-time. Customized to you, your team, your business.
+            <br />
+            We listen to your problems, then design and build solutions.
           </p>
         </div>
 
