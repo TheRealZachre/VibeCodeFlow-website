@@ -38,7 +38,9 @@ export function MobileNav() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="https://calendly.com/vibecodeflow"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="vcf-btn mt-2 justify-center"
             >

@@ -77,7 +77,7 @@ function SiteHeader() {
             </nav>
           </div>
 
-          <a href="#contact" className="vcf-btn hidden sm:inline-flex">
+          <a href="https://calendly.com/vibecodeflow" target="_blank" rel="noopener noreferrer" className="vcf-btn hidden sm:inline-flex">
             Start a conversation
           </a>
         </div>
@@ -90,40 +90,33 @@ function HeroSection() {
   return (
     <section className="relative px-5 pb-10 pt-4 md:px-8 md:pb-12 md:pt-6">
       <div className="mx-auto max-w-6xl">
-        <div className="vcf-fade-up flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-8 md:gap-10">
-          <div className="relative shrink-0 sm:pt-1">
-            <div className="vcf-logo-glow" aria-hidden />
-            <VcfLogo size="hero" href={undefined} priority />
+        <div className="vcf-fade-up text-center">
+          <div className="vcf-pill mb-5 inline-flex items-center gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-400" />
+            </span>
+            Pharma communications · AI-first
           </div>
 
-          <div className="min-w-0 max-w-3xl">
-            <div className="vcf-pill mb-5 inline-flex items-center gap-2">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-400" />
-              </span>
-              Pharma communications · AI-first
-            </div>
+          <h1 className="font-[family-name:var(--font-vcf-display)] text-[clamp(2.75rem,6vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-white">
+            An AI-First{" "}
+              <span className="vcf-gradient-text">Agency.</span>
+          </h1>
 
-            <h1 className="max-w-[12ch] font-[family-name:var(--font-vcf-display)] text-[clamp(2.75rem,6vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-white">
-              A real agency.{" "}
-              <span className="vcf-gradient-text">AI-first.</span>
-            </h1>
-
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/55 md:text-xl">
-              Senior pharma communications expertise, producing agency-grade work
-              in hours rather than weeks — custom to each client. We listen to
-              your problem, then design and build the solution.
-            </p>
-          </div>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/55 md:text-xl">
+            Senior pharma communications expertise, producing agency-grade work
+            in hours rather than weeks — custom to each client. We listen to
+            your problem, then design and build the solution.
+          </p>
         </div>
 
-        <div className="vcf-fade-up vcf-fade-up-delay mt-8 md:mt-9">
+        <div className="vcf-fade-up vcf-fade-up-delay mt-5 md:mt-6">
           <HeroPreview />
         </div>
 
-        <div className="vcf-fade-up mt-4">
-          <a href="#contact" className="vcf-btn vcf-btn-glow group inline-flex">
+        <div className="vcf-fade-up mt-4 text-center">
+          <a href="https://calendly.com/vibecodeflow" target="_blank" rel="noopener noreferrer" className="vcf-btn vcf-btn-glow group inline-flex">
             Start a conversation
             <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5" />
           </a>
@@ -423,14 +416,15 @@ function ContactSection() {
               <span className="vcf-gradient-text">We&apos;ll design the solution.</span>
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-white/55">
-              Agency-grade pharma communications, built in hours — and safe to
-              hand to your reviewers.
+              AI-powered intelligence for smarter social decisions.
             </p>
             <a
-              href={`mailto:${VCF_CONTACT_EMAIL}`}
+              href="https://calendly.com/vibecodeflow"
+              target="_blank"
+              rel="noopener noreferrer"
               className="vcf-btn vcf-btn-glow mt-8 inline-flex"
             >
-              {VCF_CONTACT_EMAIL}
+              Start a conversation
             </a>
           </div>
         </div>
