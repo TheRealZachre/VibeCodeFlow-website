@@ -13,7 +13,7 @@ export const VCF_NAV_LINKS = [
   { href: "#contact", label: "Contact" },
   {
     href: VCF_PLATFORM_OVERVIEW_URL,
-    label: "Platform Overview Download",
+    label: "One-Pager",
     external: true,
     spacedBefore: true,
   },
@@ -29,13 +29,13 @@ export const VCF_DIFFERENTIATORS = [
   {
     id: "generic-ai",
     variant: "bad" as const,
-    title: "Generic AI tools",
-    body: "Fast but scientifically illiterate. No MLR, no fair balance, no understanding of regulatory risk.",
+    title: "Generic Analytics & Insights Tools",
+    body: "Broad-market tools that generate dashboards, not decisions. No industry context, no guidance on what's working, and reports that weren't built for pharma or biotech communications.",
   },
   {
     id: "vcf",
     variant: "us" as const,
-    title: "VibeCodeFlow",
+    title: "Vibe.Code.Flow.",
     body: "Domain expertise encoded into AI tools we own — reviewed by people who have spent their careers with MLR, FDA, and medical affairs.",
   },
 ] as const;

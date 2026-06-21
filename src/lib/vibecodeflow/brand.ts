@@ -20,7 +20,7 @@ export const VCF_BRAND = {
   logoPrimary: "/brand/vcf-logo-primary.png",
   /** @deprecated use lockupHorizontalDark */
   logo: "/brand/vcf-lockup-horizontal-dark.png",
-  logoAlt: "Vibe Code Flow",
+  logoAlt: "Vibe.Code.Flow.",
   cyan: "#00D4FF",
   blue: "#3B82F6",
   purple: "#A855F7",

@@ -39,7 +39,6 @@ function VideoCardFooter() {
         className="h-9 w-auto opacity-95 sm:h-10"
       />
       <p className="text-center text-xs text-white/45 md:text-sm">
-        Contact Zach Randles-Friedman ·{" "}
         <a
           href={`mailto:${VCF_CONTACT_EMAIL}`}
           className="text-cyan-300/90 transition hover:text-cyan-200"
@@ -73,7 +72,7 @@ function VideoEndOverlay({
         Thank you
       </p>
       <p className="max-w-md text-sm leading-relaxed text-white/70 md:text-base">
-        Contact Zach Randles-Friedman at Vibe Code Flow
+        Contact Vibe.Code.Flow.
       </p>
       <a
         href={`mailto:${VCF_CONTACT_EMAIL}`}
@@ -98,7 +97,7 @@ function VideoPlaybackNote() {
     <div className="space-y-2 border-b border-white/8 bg-white/[0.03] px-4 py-3 md:px-5">
       <p className="text-xs leading-relaxed text-white/55 md:text-sm">
         <span className="font-medium text-white/75">Demonstration example:</span>{" "}
-        This walkthrough uses Pfizer to show the platform in action. The same
+        This walkthrough uses Best Pharma Company to show the platform in action. The same
         analytics capabilities can be configured for any company.
       </p>
       <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs leading-relaxed text-white/55 md:text-sm">
@@ -141,7 +140,7 @@ function DemoVideo({
       playsInline
       autoPlay={autoPlay}
       onEnded={onEnded}
-      aria-label="Pfizer digital analytics platform walkthrough"
+      aria-label="Best Pharma Company digital analytics platform walkthrough"
     >
       <source src={VCF_HERO_DEMO_VIDEO} type="video/mp4" />
       <track
@@ -217,7 +216,7 @@ export function HeroPreview() {
               <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
             </div>
             <p className="ml-3 flex-1 text-xs font-medium text-white/45 md:text-sm">
-              Analytics platform demo · Pfizer example
+              Analytics platform demo · Best Pharma Company example
             </p>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-medium text-white/55 md:text-xs">
               <Maximize2 className="h-3.5 w-3.5" />
@@ -231,12 +230,12 @@ export function HeroPreview() {
             type="button"
             onClick={openLightbox}
             className="group relative block w-full cursor-pointer bg-[#0d1421] text-left"
-            aria-label="Play and enlarge Pfizer analytics platform demo video"
+            aria-label="Play and enlarge Best Pharma Company analytics platform demo video"
           >
             <div className="relative aspect-video w-full">
               <Image
                 src={VCF_HERO_DEMO_POSTER}
-                alt="Pfizer corporate social analytics dashboard preview"
+                alt="Best Pharma Company corporate social analytics dashboard preview"
                 fill
                 priority
                 className="object-cover object-top transition duration-300 group-hover:scale-[1.01]"
@@ -256,7 +255,7 @@ export function HeroPreview() {
         </div>
 
         <p className="mt-2 text-center text-sm text-white/45">
-          Pfizer is shown as a demonstration example. Click the video to play the
+          Best Pharma Company is shown as a demonstration example. Click the video to play the
           full narrated walkthrough with closed captions.
         </p>
       </div>

@@ -284,7 +284,7 @@ const PHARMA_COMPETITORS: CompetitorBrand[] = [
     topCategory: "educational",
   },
   {
-    name: "Pfizer",
+    name: "Best Pharma Company",
     followers: 3200000,
     avgEngagementRate: 2.1,
     avgPostsPerWeek: 14,
