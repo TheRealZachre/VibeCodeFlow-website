@@ -96,7 +96,7 @@ function HeroSection() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-60" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-400" />
             </span>
-            Pharma communications · AI-first
+            Pharma/biotech communications · AI-first
           </div>
 
           <h1 className="font-[family-name:var(--font-vcf-display)] text-[clamp(2.75rem,6vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-white">
@@ -105,7 +105,7 @@ function HeroSection() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/55 md:text-xl">
-            Senior pharma communications expertise, producing agency-grade work
+            Senior pharma/biotech communications expertise, producing agency-grade work
             in hours rather than weeks — custom to each client. We listen to
             your problem, then design and build the solution.
           </p>
@@ -181,7 +181,7 @@ function PlatformSection() {
         <SectionHead
           eyebrow="Hosted applications"
           title="Built by VibeCodeFlow. Hosted by VibeCodeFlow. Yours to use."
-          description="Purpose-built analytics applications for pharma communications — hosted and maintained by us so your team gets a live, always-on intelligence layer with no infrastructure overhead."
+          description="Purpose-built analytics applications for pharma/biotech communications — hosted and maintained by us so your team gets a live, always-on intelligence layer with no infrastructure overhead."
         />
 
         <div className="grid gap-4 md:grid-cols-3">
@@ -247,7 +247,7 @@ function CapabilitiesSection() {
         <SectionHead
           eyebrow="Platform capabilities"
           title="What the analytics layer delivers."
-          description="Corporate social analytics, CEO profile tracking, and Wikipedia monitoring — purpose-built for pharma communications teams."
+          description="Corporate social analytics, CEO profile tracking, and Wikipedia monitoring — purpose-built for pharma/biotech communications teams."
         />
 
         <div className="mb-8 grid gap-4 md:grid-cols-3">

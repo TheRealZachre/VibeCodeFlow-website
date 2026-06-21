@@ -9,13 +9,13 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Vibe. Code. Flow. — The pharma communications agency, AI-first",
+  title: "Vibe. Code. Flow. — The pharma/biotech communications agency, AI-first",
   description:
-    "Senior pharma communications expertise, producing agency-grade work in hours rather than weeks. Domain expertise encoded into AI tools we build and own.",
+    "Senior pharma/biotech communications expertise, producing agency-grade work in hours rather than weeks. Domain expertise encoded into AI tools we build and own.",
   openGraph: {
-    title: "Vibe. Code. Flow. — The pharma communications agency, AI-first",
+    title: "Vibe. Code. Flow. — The pharma/biotech communications agency, AI-first",
     description:
-      "Senior pharma communications expertise, producing agency-grade work in hours rather than weeks.",
+      "Senior pharma/biotech communications expertise, producing agency-grade work in hours rather than weeks.",
     type: "website",
     images: [{ url: VCF_BRAND.lockupStackedDark, alt: VCF_BRAND.logoAlt }],
   },

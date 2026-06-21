@@ -115,7 +115,7 @@ export const VCF_FOUNDERS = [
   {
     role: "Founder · Strategy & Intelligence",
     name: "Zach Randles-Friedman",
-    bio: "Decades in pharma communications: narrative strategy, competitive intelligence, analytics, investor communications, KOL strategy, and executive positioning. The strategic and regulatory judgment behind every engagement — and the person clients call before a high-stakes moment.",
+    bio: "Decades in pharma/biotech communications: narrative strategy, competitive intelligence, analytics, investor communications, KOL strategy, and executive positioning. The strategic and regulatory judgment behind every engagement — and the person clients call before a high-stakes moment.",
   },
 ] as const;
 
