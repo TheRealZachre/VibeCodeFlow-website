@@ -277,16 +277,55 @@ function FaqSection() {
 }
 
 function DifferenceSection() {
-  const problems = VCF_DIFFERENTIATORS.filter((d) => d.variant !== "us");
-  const us = VCF_DIFFERENTIATORS.find((d) => d.variant === "us");
-
-  const rows = [
-    { label: "Speed", bad: "Weeks to a first draft", good: "Hours, not weeks" },
-    { label: "Domain knowledge", bad: "Scientifically illiterate", good: "Tells you exactly what content resonates — and why" },
-    { label: "AI", bad: "AI-averse or AI-only", good: "Domain expertise encoded into AI we own" },
-    { label: "Cost", bad: "Enterprise rates, generic output", good: "A fraction of the cost, built for you" },
-    { label: "Direction", bad: "Data without answers", good: "Post-level recommendations every report" },
+  const cols = [
+    {
+      id: "agencies",
+      label: "Traditional Agencies",
+      icon: <XIcon className="h-5 w-5 text-red-400" />,
+      iconBg: "bg-red-500/15 ring-2 ring-red-500/30",
+      featured: false,
+      values: [
+        "Weeks to a first draft",
+        "Expert knowledge, no AI scale",
+        "AI-averse",
+        "High retainer fees",
+        "Reports, no recommendations",
+        "Weeks of onboarding",
+      ],
+    },
+    {
+      id: "generic",
+      label: "Generic Analytics Tools",
+      icon: <XIcon className="h-5 w-5 text-red-400" />,
+      iconBg: "bg-red-500/15 ring-2 ring-red-500/30",
+      featured: false,
+      values: [
+        "Fast but shallow",
+        "No pharma/biotech context",
+        "AI-generated, unvalidated",
+        "Enterprise pricing",
+        "Data only, no direction",
+        "Complex setup, IT required",
+      ],
+    },
+    {
+      id: "us",
+      label: "Vibe.Code.Flow.",
+      icon: <Check className="h-5 w-5 text-cyan-300" />,
+      iconBg: "bg-cyan-400/15 ring-2 ring-cyan-400/30",
+      featured: true,
+      values: [
+        "Hours, not weeks",
+        "Tells you what content resonates — and why",
+        "Domain expertise encoded into AI we own",
+        "A fraction of the cost",
+        "Post-level direction every report",
+        "Live in days, reporting from day one",
+      ],
+    },
   ];
+
+  const rows = ["Speed", "Domain knowledge", "AI", "Cost", "Direction", "Setup"];
 
   return (
     <section id="why" className="relative px-5 py-12 md:px-8 md:py-14">
@@ -297,88 +336,72 @@ function DifferenceSection() {
           centered
         />
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          {/* Left: The old way */}
-          <div className="space-y-3">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-white/30">The old way</p>
-            {problems.map(({ id, title, body }) => (
-              <div key={id} className="flex gap-4 rounded-2xl border border-white/6 bg-white/[0.025] px-5 py-4">
-                <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-red-500/10 ring-1 ring-red-500/20">
-                  <XIcon className="h-3.5 w-3.5 text-red-400/70" />
+        <div className="overflow-hidden rounded-2xl border border-white/10">
+          {/* Column headers */}
+          <div className="grid grid-cols-[140px_1fr_1fr_1fr] border-b border-white/10 md:grid-cols-[180px_1fr_1fr_1fr]">
+            <div className="bg-white/[0.02] px-5 py-5" />
+            {cols.map((col) => (
+              <div
+                key={col.id}
+                className={`border-l px-5 py-5 text-center ${
+                  col.featured
+                    ? "border-cyan-400/25 bg-gradient-to-b from-cyan-400/12 via-cyan-400/6 to-purple-500/8"
+                    : "border-white/8 bg-white/[0.02]"
+                }`}
+              >
+                <div className={`mx-auto mb-3 flex h-9 w-9 items-center justify-center rounded-xl ${col.iconBg}`}>
+                  {col.icon}
                 </div>
-                <div>
-                  <p className="font-[family-name:var(--font-vcf-display)] text-sm font-semibold text-white/60">{title}</p>
-                  <p className="mt-0.5 text-sm leading-relaxed text-white/35">{body}</p>
-                </div>
+                <p className={`font-[family-name:var(--font-vcf-display)] text-sm font-bold leading-tight ${col.featured ? "vcf-gradient-text" : "text-white/70"}`}>
+                  {col.label}
+                </p>
               </div>
             ))}
+          </div>
 
-            {/* Comparison table */}
-            <div className="mt-5 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.025]">
-              {/* Header */}
-              <div className="grid grid-cols-[1fr_1fr_1.2fr] border-b border-white/8">
-                <div className="px-5 py-4" />
-                <div className="border-l border-white/8 px-5 py-4 text-center">
-                  <span className="text-xs font-bold uppercase tracking-[0.15em] text-white/30">Others</span>
-                </div>
-                <div className="relative border-l border-cyan-400/20 bg-gradient-to-b from-cyan-400/10 to-purple-500/5 px-5 py-4 text-center">
-                  <span className="text-xs font-bold uppercase tracking-[0.15em] vcf-gradient-text">Vibe.Code.Flow.</span>
-                </div>
+          {/* Rows */}
+          {rows.map((row, i) => (
+            <div
+              key={row}
+              className={`grid grid-cols-[140px_1fr_1fr_1fr] md:grid-cols-[180px_1fr_1fr_1fr] ${i < rows.length - 1 ? "border-b border-white/6" : ""}`}
+            >
+              <div className="flex items-center bg-white/[0.015] px-5 py-5">
+                <span className="text-xs font-bold uppercase tracking-[0.12em] text-white/65">{row}</span>
               </div>
-              {/* Rows */}
-              {rows.map(({ label, bad, good }, i) => (
-                <div key={label} className={`grid grid-cols-[1fr_1fr_1.2fr] ${i < rows.length - 1 ? "border-b border-white/6" : ""}`}>
-                  <div className="flex items-center px-5 py-4">
-                    <span className="font-[family-name:var(--font-vcf-display)] text-sm font-semibold text-white/60">{label}</span>
-                  </div>
-                  <div className="flex items-center justify-center border-l border-white/6 px-5 py-4">
-                    <span className="text-sm text-white/30">{bad}</span>
-                  </div>
-                  <div className="flex items-center justify-center border-l border-cyan-400/15 bg-gradient-to-r from-cyan-400/5 to-transparent px-5 py-4">
-                    <span className="text-center text-sm font-semibold text-cyan-300">{good}</span>
-                  </div>
+              {cols.map((col) => (
+                <div
+                  key={col.id}
+                  className={`flex items-center justify-center border-l px-5 py-5 text-center ${
+                    col.featured
+                      ? "border-cyan-400/20 bg-gradient-to-r from-cyan-400/6 to-transparent"
+                      : "border-white/6"
+                  }`}
+                >
+                  <span className={`text-sm leading-snug ${col.featured ? "font-semibold text-cyan-200" : "text-white/60"}`}>
+                    {col.values[i]}
+                  </span>
                 </div>
               ))}
             </div>
-          </div>
+          ))}
 
-          {/* Right: Us */}
-          {us && (
-            <div className="vcf-card vcf-card-featured flex flex-col justify-between">
-              <div>
-                <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1.5 text-xs font-semibold text-cyan-300">
-                  <Check className="h-3.5 w-3.5" />
-                  {us.title}
-                </div>
-                <p className="text-sm leading-relaxed text-white/60">{us.body}</p>
-
-                <ul className="mt-6 space-y-3">
-                  {[
-                    "Senior pharma/biotech communications expertise on every engagement",
-                    "AI tools we build, own, and calibrate to your brand",
-                    "Every report tells you what to do next — not just what happened",
-                    "Live in days. Reporting from day one.",
-                    "No enterprise pricing. No off-the-shelf tiers.",
-                  ].map((point) => (
-                    <li key={point} className="flex items-start gap-3 text-sm text-white/70">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
+          {/* CTA row */}
+          <div className="grid grid-cols-[140px_1fr_1fr_1fr] border-t border-white/10 md:grid-cols-[180px_1fr_1fr_1fr]">
+            <div className="bg-white/[0.02] px-5 py-5" />
+            <div className="border-l border-white/8 bg-white/[0.02] px-5 py-5" />
+            <div className="border-l border-white/8 bg-white/[0.02] px-5 py-5" />
+            <div className="flex items-center justify-center border-l border-cyan-400/20 bg-gradient-to-r from-cyan-400/6 to-transparent px-5 py-5">
               <a
                 href="https://calendly.com/vibecodeflow"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="vcf-btn vcf-btn-glow group mt-8 inline-flex w-full justify-center"
+                className="vcf-btn vcf-btn-glow group inline-flex w-full justify-center text-sm"
               >
-                See it for yourself
-                <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5" />
+                Get started
+                <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
               </a>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </section>
